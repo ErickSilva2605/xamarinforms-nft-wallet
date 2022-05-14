@@ -133,4 +133,142 @@
       <Name>NFTWallet</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\get-started-background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-angle-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-down-to-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-left-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-up-to-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-arrow-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-circle-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-ethereum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-metamask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-privacy-policy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-single.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-trends.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-verified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo-ethereum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-five.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-four.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-one.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-six.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-three.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nft-two.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile-front-cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-five.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-four.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-one.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-six.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-three.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user-two.png" />
+  </ItemGroup>
 </Project>
