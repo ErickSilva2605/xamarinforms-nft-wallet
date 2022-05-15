@@ -92,142 +92,142 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\get-started-background.png" />
+    <AndroidResource Include="Resources\drawable\get_started_background.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-angle-down.png" />
+    <AndroidResource Include="Resources\drawable\icon_angle_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-down-to-line.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-down.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_down_to_line.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-left-right.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-left.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_left_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-up-to-line.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_up.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-arrow-up.png" />
+    <AndroidResource Include="Resources\drawable\icon_arrow_up_to_line.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-cart.png" />
+    <AndroidResource Include="Resources\drawable\icon_cart.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-circle-plus.png" />
+    <AndroidResource Include="Resources\drawable\icon_circle_plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-edit.png" />
+    <AndroidResource Include="Resources\drawable\icon_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-email.png" />
+    <AndroidResource Include="Resources\drawable\icon_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-ethereum.png" />
+    <AndroidResource Include="Resources\drawable\icon_ethereum.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-favorite.png" />
+    <AndroidResource Include="Resources\drawable\icon_favorite.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-grid.png" />
+    <AndroidResource Include="Resources\drawable\icon_grid.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-help.png" />
+    <AndroidResource Include="Resources\drawable\icon_help.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-home.png" />
+    <AndroidResource Include="Resources\drawable\icon_home.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-language.png" />
+    <AndroidResource Include="Resources\drawable\icon_language.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-lock.png" />
+    <AndroidResource Include="Resources\drawable\icon_lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-metamask.png" />
+    <AndroidResource Include="Resources\drawable\icon_metamask.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-minus.png" />
+    <AndroidResource Include="Resources\drawable\icon_minus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-notification.png" />
+    <AndroidResource Include="Resources\drawable\icon_notification.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-plus.png" />
+    <AndroidResource Include="Resources\drawable\icon_plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-privacy-policy.png" />
+    <AndroidResource Include="Resources\drawable\icon_privacy_policy.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-search.png" />
+    <AndroidResource Include="Resources\drawable\icon_search.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-send.png" />
+    <AndroidResource Include="Resources\drawable\icon_send.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-settings.png" />
+    <AndroidResource Include="Resources\drawable\icon_settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-single.png" />
+    <AndroidResource Include="Resources\drawable\icon_single.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-trends.png" />
+    <AndroidResource Include="Resources\drawable\icon_trends.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-user.png" />
+    <AndroidResource Include="Resources\drawable\icon_user.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-verified.png" />
+    <AndroidResource Include="Resources\drawable\icon_verified.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon-wallet.png" />
+    <AndroidResource Include="Resources\drawable\icon_wallet.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\logo-ethereum.png" />
+    <AndroidResource Include="Resources\drawable\logo_ethereum.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-five.png" />
+    <AndroidResource Include="Resources\drawable\nft_five.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-four.png" />
+    <AndroidResource Include="Resources\drawable\nft_four.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-one.png" />
+    <AndroidResource Include="Resources\drawable\nft_one.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-six.png" />
+    <AndroidResource Include="Resources\drawable\nft_six.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-three.png" />
+    <AndroidResource Include="Resources\drawable\nft_three.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nft-two.png" />
+    <AndroidResource Include="Resources\drawable\nft_two.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\profile-front-cover.png" />
+    <AndroidResource Include="Resources\drawable\profile_front_cover.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-five.png" />
+    <AndroidResource Include="Resources\drawable\user_five.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-four.png" />
+    <AndroidResource Include="Resources\drawable\user_four.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-one.png" />
+    <AndroidResource Include="Resources\drawable\user_one.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-six.png" />
+    <AndroidResource Include="Resources\drawable\user_six.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-three.png" />
+    <AndroidResource Include="Resources\drawable\user_three.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\user-two.png" />
+    <AndroidResource Include="Resources\drawable\user_two.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

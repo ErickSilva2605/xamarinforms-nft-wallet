@@ -134,141 +134,141 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\get-started-background.png" />
+    <BundleResource Include="Resources\get_started_background.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-angle-down.png" />
+    <BundleResource Include="Resources\icon_angle_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-down-to-line.png" />
+    <BundleResource Include="Resources\icon_arrow_down.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-down.png" />
+    <BundleResource Include="Resources\icon_arrow_down_to_line.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-left-right.png" />
+    <BundleResource Include="Resources\icon_arrow_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-left.png" />
+    <BundleResource Include="Resources\icon_arrow_left_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-up-to-line.png" />
+    <BundleResource Include="Resources\icon_arrow_up.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-arrow-up.png" />
+    <BundleResource Include="Resources\icon_arrow_up_to_line.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-cart.png" />
+    <BundleResource Include="Resources\icon_cart.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-circle-plus.png" />
+    <BundleResource Include="Resources\icon_circle_plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-edit.png" />
+    <BundleResource Include="Resources\icon_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-email.png" />
+    <BundleResource Include="Resources\icon_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-ethereum.png" />
+    <BundleResource Include="Resources\icon_ethereum.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-favorite.png" />
+    <BundleResource Include="Resources\icon_favorite.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-grid.png" />
+    <BundleResource Include="Resources\icon_grid.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-help.png" />
+    <BundleResource Include="Resources\icon_help.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-home.png" />
+    <BundleResource Include="Resources\icon_home.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-language.png" />
+    <BundleResource Include="Resources\icon_language.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-lock.png" />
+    <BundleResource Include="Resources\icon_lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-metamask.png" />
+    <BundleResource Include="Resources\icon_metamask.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-minus.png" />
+    <BundleResource Include="Resources\icon_minus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-notification.png" />
+    <BundleResource Include="Resources\icon_notification.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-plus.png" />
+    <BundleResource Include="Resources\icon_plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-privacy-policy.png" />
+    <BundleResource Include="Resources\icon_privacy_policy.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-search.png" />
+    <BundleResource Include="Resources\icon_search.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-send.png" />
+    <BundleResource Include="Resources\icon_send.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-settings.png" />
+    <BundleResource Include="Resources\icon_settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-single.png" />
+    <BundleResource Include="Resources\icon_single.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-trends.png" />
+    <BundleResource Include="Resources\icon_trends.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-user.png" />
+    <BundleResource Include="Resources\icon_user.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-verified.png" />
+    <BundleResource Include="Resources\icon_verified.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon-wallet.png" />
+    <BundleResource Include="Resources\icon_wallet.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo-ethereum.png" />
+    <BundleResource Include="Resources\logo_ethereum.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-five.png" />
+    <BundleResource Include="Resources\nft_five.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-four.png" />
+    <BundleResource Include="Resources\nft_four.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-one.png" />
+    <BundleResource Include="Resources\nft_one.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-six.png" />
+    <BundleResource Include="Resources\nft_six.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-three.png" />
+    <BundleResource Include="Resources\nft_three.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\nft-two.png" />
+    <BundleResource Include="Resources\nft_two.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\profile-front-cover.png" />
+    <BundleResource Include="Resources\profile_front_cover.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-five.png" />
+    <BundleResource Include="Resources\user_five.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-four.png" />
+    <BundleResource Include="Resources\user_four.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-one.png" />
+    <BundleResource Include="Resources\user_one.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-six.png" />
+    <BundleResource Include="Resources\user_six.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-three.png" />
+    <BundleResource Include="Resources\user_three.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\user-two.png" />
+    <BundleResource Include="Resources\user_two.png" />
   </ItemGroup>
 </Project>
