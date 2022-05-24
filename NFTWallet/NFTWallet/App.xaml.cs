@@ -1,6 +1,5 @@
-﻿using System;
+﻿using NFTWallet.Helpers;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace NFTWallet
 {
@@ -10,9 +9,11 @@ namespace NFTWallet
         {
             InitializeComponent();
 
+            ThemeHelper.InitTheme();
+
             MainPage = new MainPage();
         }
-
+            
         protected override void OnStart()
         {
         }

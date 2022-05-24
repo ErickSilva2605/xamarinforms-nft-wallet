@@ -4,5 +4,162 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     >
-    <Application.Resources />
+    <Application.Resources>
+
+        <!--  Color Palette  -->
+        <Color x:Key="ColorPrimary50">#FCFDFD</Color>
+        <Color x:Key="ColorPrimary100">#E3E7ED</Color>
+        <Color x:Key="ColorPrimary200">#B1BACB</Color>
+        <Color x:Key="ColorPrimary300">#98A4B9</Color>
+        <Color x:Key="ColorPrimary400">#98A4B9</Color>
+        <Color x:Key="ColorPrimary500">#657893</Color>
+        <Color x:Key="ColorPrimary600">#657893</Color>
+        <Color x:Key="ColorPrimary700">#334B6A</Color>
+        <Color x:Key="ColorPrimary800">#193555</Color>
+        <Color x:Key="ColorPrimary900">#001F3F</Color>
+
+        <Color x:Key="ColorSecondary50">#FFFFED</Color>
+        <Color x:Key="ColorSecondary900">#EDE68A</Color>
+
+        <Color x:Key="ColorTertiaryGreen">#71FFA1</Color>
+        <Color x:Key="ColorTertiaryRed">#FD8282</Color>
+
+        <!--  Title Size  -->
+        <x:Double x:Key="TitleSmallFontSize">20</x:Double>
+        <x:Double x:Key="TitleNormalFontSize">24</x:Double>
+        <x:Double x:Key="TitleLargeFontSize">32</x:Double>
+        <x:Double x:Key="TitleSmallLineHeight">24</x:Double>
+        <x:Double x:Key="TitleNormalLineHeight">32</x:Double>
+        <x:Double x:Key="TitleLargeLineHeight">40</x:Double>
+
+        <!--  Subtitle Size  -->
+        <x:Double x:Key="SubtitleNormalFontSize">16</x:Double>
+        <x:Double x:Key="SubtitleNormalLineHeight">22</x:Double>
+
+        <!--  Caption Size  -->
+        <x:Double x:Key="CaptionSmallFontSize">12</x:Double>
+        <x:Double x:Key="CaptionSmallLineHeight">16</x:Double>
+
+        <!--  Body Size  -->
+        <x:Double x:Key="BodySmallFontSize">14</x:Double>
+        <x:Double x:Key="BodyNormalFontSize">16</x:Double>
+        <x:Double x:Key="BodyLargeFontSize">18</x:Double>
+        <x:Double x:Key="BodySmallLineHeight">20</x:Double>
+        <x:Double x:Key="BodyNormalLineHeight">24</x:Double>
+        <x:Double x:Key="BodyLargeLineHeight">28</x:Double>
+
+        <!--  Button Size  -->
+        <x:Double x:Key="ButtonSmallFontSize">14</x:Double>
+        <x:Double x:Key="ButtonNormalFontSize">16</x:Double>
+
+        <!--  Page Style  -->
+        <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary900}, Light={StaticResource ColorPrimary50}}" />
+        </Style>
+
+        <!--  Base Regular Label  -->
+        <Style x:Key="LabelRegularBase" TargetType="Label">
+            <Setter Property="FontFamily" Value="FontRegular" />
+        </Style>
+
+        <!--  Base Medium Label  -->
+        <Style x:Key="LabelMediumBase" TargetType="Label">
+            <Setter Property="FontFamily" Value="FontMedium" />
+        </Style>
+
+        <!--  Title Style  -->
+        <Style
+            x:Key="LabelTitleSmall"
+            BasedOn="{StaticResource LabelMediumBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource TitleSmallFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource TitleSmallLineHeight}" />
+        </Style>
+
+        <Style
+            x:Key="LabelTitleNormal"
+            BasedOn="{StaticResource LabelMediumBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource TitleNormalFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource TitleNormalLineHeight}" />
+        </Style>
+
+        <Style
+            x:Key="LabelTitleLarge"
+            BasedOn="{StaticResource LabelMediumBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource TitleLargeFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource TitleLargeLineHeight}" />
+        </Style>
+
+        <!--  Subtitle Style  -->
+        <Style
+            x:Key="LabelSubtitleNormal"
+            BasedOn="{StaticResource LabelMediumBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary100}, Light={StaticResource ColorPrimary800}}" />
+            <Setter Property="FontSize" Value="{StaticResource SubtitleNormalFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource SubtitleNormalLineHeight}" />
+        </Style>
+
+        <!--  Caption Style  -->
+        <Style
+            x:Key="LabelCaptionSmall"
+            BasedOn="{StaticResource LabelRegularBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource CaptionSmallFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource CaptionSmallLineHeight}" />
+        </Style>
+
+        <!--  Body Style  -->
+        <Style
+            x:Key="LabelBodySmall"
+            BasedOn="{StaticResource LabelRegularBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary100}, Light={StaticResource ColorPrimary800}}" />
+            <Setter Property="FontSize" Value="{StaticResource BodySmallFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource BodySmallLineHeight}" />
+        </Style>
+
+        <Style
+            x:Key="LabelBodyNormal"
+            BasedOn="{StaticResource LabelRegularBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource BodyNormalFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource BodyNormalLineHeight}" />
+        </Style>
+
+        <Style
+            x:Key="LabelBodyLarge"
+            BasedOn="{StaticResource LabelRegularBase}"
+            TargetType="Label"
+            >
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary50}, Light={StaticResource ColorPrimary900}}" />
+            <Setter Property="FontSize" Value="{StaticResource BodyLargeFontSize}" />
+            <Setter Property="LineHeight" Value="{StaticResource BodyLargeLineHeight}" />
+        </Style>
+
+        <!--  Button Style  -->
+        <Style x:Key="ButtonSmall" TargetType="Button">
+            <Setter Property="FontSize" Value="{StaticResource ButtonSmallFontSize}" />
+            <Setter Property="FontFamily" Value="FontMedium" />
+        </Style>
+
+        <Style x:Key="ButtonNormal" TargetType="Button">
+            <Setter Property="FontSize" Value="{StaticResource ButtonNormalFontSize}" />
+            <Setter Property="FontFamily" Value="FontMedium" />
+        </Style>
+    </Application.Resources>
 </Application>
