@@ -1,4 +1,6 @@
 ﻿using NFTWallet.Helpers;
+using System.Globalization;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace NFTWallet
@@ -7,8 +9,8 @@ namespace NFTWallet
     {
         public App()
         {
+            TranslateManagerHelper.Instance.InitCulture();
             InitializeComponent();
-
             ThemeHelper.InitTheme();
 
             MainPage = new MainPage();

@@ -3,6 +3,7 @@
     x:Class="NFTWallet.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     >
 
     <StackLayout>
@@ -38,6 +39,15 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
+        <Label
+            HorizontalOptions="Center"
+            Style="{StaticResource LabelTitleLarge}"
+            Text="{helpers:Translate GetStartedButton}"
+            />
+
+        <Button Clicked="SetDeviceCulture" Text="Set Device Culture" />
+        <Button Clicked="SetIngles" Text="Set ingles" />
+        <Button Clicked="SetPortugues" Text="Set portugues" />
     </StackLayout>
 
 </ContentPage>

@@ -40,9 +40,6 @@ namespace NFTWallet.Helpers
             return hasDarkMode;
         }
 
-        private static OSAppTheme GetTheme() =>
-            Application.Current.RequestedTheme;
-
         private static void SetTheme(OSAppTheme theme) =>
             Application.Current.UserAppTheme = theme;
     }
