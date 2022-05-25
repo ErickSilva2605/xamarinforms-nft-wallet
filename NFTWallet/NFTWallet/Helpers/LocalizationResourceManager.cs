@@ -20,7 +20,7 @@ namespace NFTWallet.Helpers
 
         public void InitCulture() 
         {
-            string language = Preferences.Get("cultureSelected", string.Empty);
+            string language = Preferences.Get(Constants.PREFERENCES_KEY_CULTURE_SELECTED, string.Empty);
             if (!string.IsNullOrEmpty(language))
                 SetCulture(new CultureInfo(language));
             else
@@ -32,7 +32,7 @@ namespace NFTWallet.Helpers
             Thread.CurrentThread.CurrentUICulture = language;
             AppResources.Culture = language;
 
-            Preferences.Set("cultureSelected", language.Name);
+            Preferences.Set(Constants.PREFERENCES_KEY_CULTURE_SELECTED, language.Name);
 
             Invalidate();
         }
