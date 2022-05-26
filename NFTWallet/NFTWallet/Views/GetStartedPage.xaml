@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NFTWallet.Views.GetStartedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:magic="http://magic.com/schemas/gradients"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <ContentPage.Content>
+        <Grid>
+            <Grid Padding="-60">
+                <Image Source="get_started_background" VerticalOptions="Start" />
+            </Grid>
+            <magic:GradientView>
+                <magic:GradientView.GradientSource>
+                    <magic:LinearGradient Angle="0">
+                        <magic:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorGradientSecondaryDark}, Light={StaticResource ColorGradientSecondaryLight}}" />
+                        <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorGradientPrimaryDark}, Light={StaticResource ColorGradientPrimaryLight}}" />
+                    </magic:LinearGradient>
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>
+            <Grid
+                Padding="16,0,16,65"
+                RowDefinitions="Auto,Auto,Auto"
+                RowSpacing="16"
+                VerticalOptions="End"
+                >
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelTitleNormal}"
+                    Text="{helpers:Translate GetStartedTitle}"
+                    />
+                <Label
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelBodyNormal}"
+                    Text="{helpers:Translate GetStartedSubtitle}"
+                    />
+                <Button
+                    Grid.Row="2"
+                    Margin="0,16,0,0"
+                    Style="{StaticResource ButtonSmallBackgound}"
+                    Text="{helpers:Translate GetStartedButton}"
+                    />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

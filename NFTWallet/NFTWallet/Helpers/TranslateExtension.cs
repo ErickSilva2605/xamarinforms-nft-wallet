@@ -24,7 +24,6 @@ namespace NFTWallet.Helpers
                 Path = $"[{Text}]",
                 Source = TranslateManagerHelper.Instance,
                 StringFormat = StringFormat
-
             };
             return binding;
         }

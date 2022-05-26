@@ -70,7 +70,7 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor turpis sed condime. Dolor turpis sed condime.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Discover the Most Premium, Unique and Exclusive NFT Collections.
         /// </summary>
         internal static string GetStartedSubtitle {
             get {
