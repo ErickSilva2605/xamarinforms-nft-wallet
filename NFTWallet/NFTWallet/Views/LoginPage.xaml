@@ -3,15 +3,115 @@
     x:Class="NFTWallet.Views.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     NavigationPage.HasNavigationBar="False"
     >
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand"
+        <StackLayout
+            Padding="16,70,16,30"
+            Orientation="Vertical"
+            Spacing="8"
+            >
+            <Image
+                HeightRequest="110"
+                HorizontalOptions="Center"
+                Source="logo_ethereum"
+                VerticalOptions="Start"
                 />
+            <Label
+                Margin="0,16,0,0"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelTitleLarge}"
+                Text="{helpers:Translate LoginTitle}"
+                VerticalTextAlignment="Start"
+                />
+
+            <Label
+                Margin="8,0"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelSubtitleNormal}"
+                Text="{helpers:Translate LoginSubtitle}"
+                VerticalTextAlignment="Start"
+                />
+
+            <pancake:PancakeView
+                Margin="0,32,0,0"
+                Border="{pancake:BorderMarkup Color={AppThemeBinding Dark={StaticResource ColorPrimary700},
+                                                                     Light={StaticResource ColorPrimary200}},
+                                              Thickness=2}"
+                Style="{StaticResource CardButton}"
+                />
+
+            <pancake:PancakeView
+                Margin="0,16,0,0"
+                Border="{pancake:BorderMarkup Color={AppThemeBinding Dark={StaticResource ColorPrimary700},
+                                                                     Light={StaticResource ColorPrimary200}},
+                                              Thickness=2}"
+                Style="{StaticResource CardButton}"
+                />
+
+            <Label
+                Margin="8,0"
+                HorizontalTextAlignment="End"
+                Style="{StaticResource LabelBodyNormal}"
+                Text="{helpers:Translate LoginForgotPassword}"
+                VerticalTextAlignment="Start"
+                />
+
+            <Button
+                Margin="0,32,0,0"
+                Style="{StaticResource ButtonSmallBackgound}"
+                Text="{helpers:Translate LoginButtonLogin}"
+                />
+
+            <Label
+                Margin="0,10"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelBodyNormal}"
+                Text="{helpers:Translate LoginLabelOr}"
+                VerticalTextAlignment="Start"
+                />
+
+            <pancake:PancakeView
+                Padding="16,0"
+                BackgroundColor="{StaticResource ColorTransparent}"
+                Border="{pancake:BorderMarkup Color={StaticResource ColorSecondary900},
+                                              Thickness=2}"
+                Style="{StaticResource CardButton}"
+                >
+                <FlexLayout
+                    AlignItems="Center"
+                    Direction="Row"
+                    JustifyContent="Center"
+                    >
+                    <Label
+                        Margin="0,0,12,0"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelBodyNormal}"
+                        Text="{helpers:Translate LoginButtonMetamesk}"
+                        TextColor="{StaticResource ColorSecondary900}"
+                        VerticalTextAlignment="Center"
+                        />
+                    <Image Source="icon_metamask" WidthRequest="24" />
+                </FlexLayout>
+            </pancake:PancakeView>
+
+            <Label
+                Margin="0,60,0,0"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelBodyNormal}"
+                VerticalOptions="End"
+                VerticalTextAlignment="End"
+                >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{helpers:Translate LoginNotResgistered}" />
+                        <Span Text=" " />
+                        <Span Text="{helpers:Translate LoginRegister}" TextColor="{StaticResource ColorSecondary900}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

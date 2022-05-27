@@ -126,4 +126,34 @@
   <data name="GetStartedTitle" xml:space="preserve">
     <value>SUCURI NFT</value>
   </data>
+  <data name="LoginButtonLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginButtonMetamesk" xml:space="preserve">
+    <value>Login with Metamesk</value>
+  </data>
+  <data name="LoginForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="LoginLabelOr" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="LoginNotResgistered" xml:space="preserve">
+    <value>Not registered yet?</value>
+  </data>
+  <data name="LoginPlaceholderEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="LoginPlaceholderPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="LoginSubtitle" xml:space="preserve">
+    <value>Discover the Most Premium, Unique and Exclusive NFT Collections</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
 </root>

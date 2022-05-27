@@ -86,5 +86,95 @@ namespace NFTWallet.Resources.Language {
                 return ResourceManager.GetString("GetStartedTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
+        /// </summary>
+        internal static string LoginButtonLogin {
+            get {
+                return ResourceManager.GetString("LoginButtonLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login with Metamesk.
+        /// </summary>
+        internal static string LoginButtonMetamesk {
+            get {
+                return ResourceManager.GetString("LoginButtonMetamesk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Forgot password?.
+        /// </summary>
+        internal static string LoginForgotPassword {
+            get {
+                return ResourceManager.GetString("LoginForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a or.
+        /// </summary>
+        internal static string LoginLabelOr {
+            get {
+                return ResourceManager.GetString("LoginLabelOr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Not registered yet?.
+        /// </summary>
+        internal static string LoginNotResgistered {
+            get {
+                return ResourceManager.GetString("LoginNotResgistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail.
+        /// </summary>
+        internal static string LoginPlaceholderEmail {
+            get {
+                return ResourceManager.GetString("LoginPlaceholderEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password.
+        /// </summary>
+        internal static string LoginPlaceholderPassword {
+            get {
+                return ResourceManager.GetString("LoginPlaceholderPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Register.
+        /// </summary>
+        internal static string LoginRegister {
+            get {
+                return ResourceManager.GetString("LoginRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Discover the Most Premium, Unique and Exclusive NFT Collections.
+        /// </summary>
+        internal static string LoginSubtitle {
+            get {
+                return ResourceManager.GetString("LoginSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
+        /// </summary>
+        internal static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@
     x:Class="NFTWallet.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     >
     <Application.Resources>
 
@@ -29,6 +30,8 @@
 
         <Color x:Key="ColorGradientPrimaryLight">#F2FCFDFD</Color>
         <Color x:Key="ColorGradientSecondaryLight">#00FCFDFD</Color>
+
+        <Color x:Key="ColorTransparent">#00000000</Color>
 
         <!--  Title Size  -->
         <x:Double x:Key="TitleSmallFontSize">20</x:Double>
@@ -168,6 +171,14 @@
             <Setter Property="CornerRadius" Value="{StaticResource ButtonCornerRadiusSize}" />
             <Setter Property="Padding" Value="16" />
             <Setter Property="HorizontalOptions" Value="Fill" />
+        </Style>
+
+        <!--  Card Style  -->
+        <Style x:Key="CardButton" TargetType="{x:Type pancake:PancakeView}">
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="CornerRadius" Value="{StaticResource ButtonCornerRadiusSize}" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary800}, Light={StaticResource ColorPrimary100}}" />
         </Style>
     </Application.Resources>
 </Application>
