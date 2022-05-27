@@ -1,4 +1,8 @@
-﻿using NFTWallet.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -6,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace NFTWallet.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GetStartedPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public GetStartedPage()
+        public LoginPage()
         {
             InitializeComponent();
-            BindingContext = new GetStartedViewModel(Navigation);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace NFTWallet
             InitializeComponent();
             ThemeHelper.InitTheme();
 
-            MainPage = new GetStartedPage();
+            MainPage = new NavigationPage(new GetStartedPage());
         }
             
         protected override void OnStart()
