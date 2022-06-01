@@ -28,6 +28,19 @@ namespace NFTWallet.Helpers
             SetTheme(theme);
         }
 
+        public static OSAppTheme GetCurrentTheme()
+        {
+            int themeSelected = Preferences.Get(Constants.PREFERENCES_KEY_THEME_SELECTED, (int)OSAppTheme.Unspecified);
+
+            if (themeSelected != 0)
+                return (OSAppTheme)themeSelected;
+
+            if(DeviceHasDarkMode())
+                return GetTheme();
+
+            return OSAppTheme.Light;
+        }
+
         public static bool DeviceHasDarkMode()
         {
             bool hasDarkMode = false;
@@ -39,6 +52,9 @@ namespace NFTWallet.Helpers
 
             return hasDarkMode;
         }
+
+        private static OSAppTheme GetTheme() =>
+            Application.Current.RequestedTheme;
 
         private static void SetTheme(OSAppTheme theme) =>
             Application.Current.UserAppTheme = theme;

@@ -14,7 +14,16 @@ namespace NFTWallet.Views
     {
         public LoginPage()
         {
+            try
+            {
             InitializeComponent();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

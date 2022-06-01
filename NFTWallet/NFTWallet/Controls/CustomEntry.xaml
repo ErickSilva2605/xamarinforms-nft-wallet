@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="NFTWallet.Controls.CustomEntry"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NFTWallet.Controls"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="this"
+    >
+    <ContentView.Content>
+        <Frame
+            x:Name="frameContainer"
+            Margin="0"
+            Padding="0,4"
+            BackgroundColor="{Binding CardBackgroundColor, Source={x:Reference this}}"
+            BorderColor="{Binding CardBorderColor, Source={x:Reference this}}"
+            CornerRadius="8"
+            HasShadow="False"
+            HeightRequest="48"
+            >
+            <Grid
+                x:Name="gridContainer"
+                Padding="0,0,0,0"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="12"
+                HeightRequest="48"
+                HorizontalOptions="Fill"
+                RowDefinitions="*"
+                VerticalOptions="Fill"
+                >
+                <Image
+                    x:Name="leadingIcon"
+                    Margin="16,0,0,0"
+                    xct:IconTintColorEffect.TintColor="{Binding LeadingIconColor, Source={x:Reference this}}"
+                    HeightRequest="24"
+                    HorizontalOptions="Start"
+                    Source="{Binding LeadingIcon, Source={x:Reference this}}"
+                    VerticalOptions="Center"
+                    />
+                <controls:CustomEntryBorderless
+                    x:Name="entryBorderless"
+                    Grid.Column="1"
+                    Margin="-3,0,16,0"
+                    Completed="HandleCompleted"
+                    Focused="HandleFocused"
+                    FontFamily="FontRegular"
+                    FontSize="16"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Start"
+                    IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+                    Keyboard="{Binding Keyboard, Source={x:Reference this}}"
+                    ReturnType="{Binding ReturnType, Source={x:Reference this}}"
+                    TextColor="{Binding TextColor, Source={x:Reference this}}"
+                    Unfocused="HandleUnfocused"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    />
+                <Label
+                    x:Name="placeholderText"
+                    Grid.Column="1"
+                    FontFamily="FontRegular"
+                    FontSize="16"
+                    Text="{Binding Placeholder, Source={x:Reference this}}"
+                    TextColor="{Binding PlaceholderColor, Source={x:Reference this}}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    />
+            </Grid>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="HandleTapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

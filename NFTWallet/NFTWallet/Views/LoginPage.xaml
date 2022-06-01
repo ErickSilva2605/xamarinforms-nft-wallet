@@ -3,8 +3,10 @@
     x:Class="NFTWallet.Views.LoginPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NFTWallet.Controls"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False"
     >
     <ContentPage.Content>
@@ -35,24 +37,47 @@
                 VerticalTextAlignment="Start"
                 />
 
-            <pancake:PancakeView
+            <controls:CustomEntry
                 Margin="0,32,0,0"
-                Border="{pancake:BorderMarkup Color={AppThemeBinding Dark={StaticResource ColorPrimary700},
-                                                                     Light={StaticResource ColorPrimary200}},
-                                              Thickness=2}"
-                Style="{StaticResource CardButton}"
+                AccentColor="{StaticResource ColorSecondary900}"
+                CardBackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                      Light={StaticResource ColorPrimary100}}"
+                CardBorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary700},
+                                                  Light={StaticResource ColorPrimary200}}"
+                LeadingIcon="icon_email"
+                LeadingIconColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                   Light={StaticResource ColorPrimary900}}"
+                Placeholder="{helpers:Translate LoginPlaceholderEmail}"
+                PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                   Light={StaticResource ColorPrimary900}}"
+                ReturnType="Next"
+                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                            Light={StaticResource ColorPrimary900}}"
                 />
 
-            <pancake:PancakeView
+            <controls:CustomEntry
                 Margin="0,16,0,0"
-                Border="{pancake:BorderMarkup Color={AppThemeBinding Dark={StaticResource ColorPrimary700},
-                                                                     Light={StaticResource ColorPrimary200}},
-                                              Thickness=2}"
-                Style="{StaticResource CardButton}"
+                AccentColor="{StaticResource ColorSecondary900}"
+                CardBackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                      Light={StaticResource ColorPrimary100}}"
+                CardBorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary700},
+                                                  Light={StaticResource ColorPrimary200}}"
+                IsPassword="True"
+                LeadingIcon="icon_lock"
+                LeadingIconColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                   Light={StaticResource ColorPrimary900}}"
+                Placeholder="{helpers:Translate LoginPlaceholderPassword}"
+                PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                   Light={StaticResource ColorPrimary900}}"
+                ReturnType="Go"
+                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                            Light={StaticResource ColorPrimary900}}"
                 />
 
             <Label
                 Margin="8,0"
+                xct:TouchEffect.NativeAnimation="True"
+                HorizontalOptions="End"
                 HorizontalTextAlignment="End"
                 Style="{StaticResource LabelBodyNormal}"
                 Text="{helpers:Translate LoginForgotPassword}"
@@ -75,6 +100,7 @@
 
             <pancake:PancakeView
                 Padding="16,0"
+                xct:TouchEffect.NativeAnimation="True"
                 BackgroundColor="{StaticResource ColorTransparent}"
                 Border="{pancake:BorderMarkup Color={StaticResource ColorSecondary900},
                                               Thickness=2}"
@@ -99,6 +125,8 @@
 
             <Label
                 Margin="0,60,0,0"
+                xct:TouchEffect.NativeAnimation="True"
+                HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource LabelBodyNormal}"
                 VerticalOptions="End"
