@@ -50,6 +50,7 @@
                     IsPassword="{Binding IsPassword, Source={x:Reference this}}"
                     Keyboard="{Binding Keyboard, Source={x:Reference this}}"
                     ReturnType="{Binding ReturnType, Source={x:Reference this}}"
+                    TextChanged="HandleTextChanged"
                     TextColor="{Binding TextColor, Source={x:Reference this}}"
                     Unfocused="HandleUnfocused"
                     VerticalOptions="Center"

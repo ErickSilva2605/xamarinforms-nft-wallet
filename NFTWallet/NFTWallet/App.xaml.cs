@@ -2,6 +2,7 @@
 using NFTWallet.Views;
 using System.Globalization;
 using System.Threading;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace NFTWallet
@@ -14,7 +15,10 @@ namespace NFTWallet
             InitializeComponent();
             ThemeHelper.InitTheme();
 
-            MainPage = new NavigationPage(new GetStartedPage());
+            if(Preferences.Get(Constants.PREFERENCES_KEY_AUTHENTICATED, false))
+                MainPage = new NavigationPage(new MainPage());
+            else
+                MainPage = new NavigationPage(new GetStartedPage());
         }
             
         protected override void OnStart()

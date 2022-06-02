@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NFTWallet.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <ContentPage.Content>
+        <Grid Padding="0,48,0,0" RowDefinitions="Auto,Auto,Auto,*" />
+    </ContentPage.Content>
+</ContentPage>

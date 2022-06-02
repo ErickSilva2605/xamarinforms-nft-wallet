@@ -51,6 +51,7 @@
                 PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
                                                    Light={StaticResource ColorPrimary900}}"
                 ReturnType="Next"
+                Text="{Binding Email}"
                 TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
                                             Light={StaticResource ColorPrimary900}}"
                 />
@@ -70,6 +71,7 @@
                 PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
                                                    Light={StaticResource ColorPrimary900}}"
                 ReturnType="Go"
+                Text="{Binding Password}"
                 TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
                                             Light={StaticResource ColorPrimary900}}"
                 />
@@ -86,6 +88,7 @@
 
             <Button
                 Margin="0,32,0,0"
+                Command="{Binding LoginCommand}"
                 Style="{StaticResource ButtonSmallBackgound}"
                 Text="{helpers:Translate LoginButtonLogin}"
                 />

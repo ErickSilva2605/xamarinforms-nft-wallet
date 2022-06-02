@@ -11,6 +11,7 @@ namespace NFTWallet.Controls
     public partial class CustomEntry : ContentView
     {
         public event EventHandler<EventArgs> Completed;
+        public event EventHandler<TextChangedEventArgs> TextChanged;
 
         public static readonly BindableProperty TextProperty = BindableProperty.Create(
             nameof(Text), 
@@ -284,7 +285,14 @@ namespace NFTWallet.Controls
                 MainThread.BeginInvokeOnMainThread(async () => await TranslateTitleToPlaceholder(true));
         }
 
-        private void HandleCompleted(object sender, EventArgs e) => Completed?.Invoke(this, e);
+        private void HandleCompleted(object sender, EventArgs e) 
+            => Completed?.Invoke(this, e);
+
+        private void HandleTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Text = e.NewTextValue;
+            TextChanged?.Invoke(this, e);
+        }
 
         private async Task TranslatePlaceholderToTitle(bool animated)
         {
