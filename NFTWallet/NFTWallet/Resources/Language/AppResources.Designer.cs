@@ -88,6 +88,15 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Search.
+        /// </summary>
+        internal static string HomePlaceholderSearch {
+            get {
+                return ResourceManager.GetString("HomePlaceholderSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
         /// </summary>
         internal static string LoginButtonLogin {

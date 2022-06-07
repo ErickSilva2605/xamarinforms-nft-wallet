@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using NFTWallet.Services;
+using NFTWallet.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +11,7 @@ namespace NFTWallet.Views
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new HomeViewModel(Navigation, new FilterService(), new SaleService());
         }
     }
 }

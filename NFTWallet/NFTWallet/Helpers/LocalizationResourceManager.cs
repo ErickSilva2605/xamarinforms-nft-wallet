@@ -27,6 +27,15 @@ namespace NFTWallet.Helpers
                 SetCulture(CultureInfo.InstalledUICulture);
         }
 
+        public string GetCulture()
+        {
+            string language = Preferences.Get(Constants.PREFERENCES_KEY_CULTURE_SELECTED, string.Empty);
+            if (!string.IsNullOrEmpty(language))
+                return language;
+            else
+                return CultureInfo.InstalledUICulture.Name;
+        }
+
         public void SetCulture(CultureInfo language)
         {
             Thread.CurrentThread.CurrentUICulture = language;

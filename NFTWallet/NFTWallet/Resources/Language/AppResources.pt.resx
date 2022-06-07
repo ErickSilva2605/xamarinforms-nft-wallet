@@ -126,6 +126,9 @@
   <data name="GetStartedTitle" xml:space="preserve">
     <value>SUCURI NFT</value>
   </data>
+  <data name="HomePlaceholderSearch" xml:space="preserve">
+    <value>Pesquisar</value>
+  </data>
   <data name="LoginButtonLogin" xml:space="preserve">
     <value>Entrar</value>
   </data>
