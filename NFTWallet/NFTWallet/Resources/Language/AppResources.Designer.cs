@@ -88,6 +88,15 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Owned by.
+        /// </summary>
+        internal static string HomeLabelOwnedBy {
+            get {
+                return ResourceManager.GetString("HomeLabelOwnedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Search.
         /// </summary>
         internal static string HomePlaceholderSearch {

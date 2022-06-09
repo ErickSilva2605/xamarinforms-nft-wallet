@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:NFTWallet.Controls"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:magic="http://magic.com/schemas/gradients"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
@@ -178,72 +179,95 @@
                         <Grid Padding="16,0">
                             <pancake:PancakeView CornerRadius="8">
                                 <Grid>
-                                    <Image Source="{Binding Image}" />
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="380"
+                                        Source="{Binding Image}"
+                                        WidthRequest="342"
+                                        />
                                     <pancake:PancakeView
                                         Padding="0"
                                         HeightRequest="82"
                                         VerticalOptions="End"
                                         >
-                                        <Grid
-                                            Padding="16"
-                                            ColumnDefinitions="Auto,*,Auto"
-                                            ColumnSpacing="12"
-                                            >
-                                            <pancake:PancakeView
-                                                Padding="0"
-                                                Border="{pancake:BorderMarkup Thickness=2,
-                                                                              Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
-                                                                                                     Light={StaticResource ColorPrimary300}}}"
-                                                CornerRadius="20"
-                                                HeightRequest="40"
-                                                HorizontalOptions="Start"
-                                                VerticalOptions="Center"
-                                                WidthRequest="40"
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <magic:GradientView HorizontalOptions="Fill" VerticalOptions="Fill">
+                                                <magic:GradientView.GradientSource>
+                                                    <magic:LinearGradient Angle="0">
+                                                        <magic:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorGradientSecondaryDark}, Light={StaticResource ColorGradientSecondaryLight}}" />
+                                                        <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorGradientPrimaryDark}, Light={StaticResource ColorGradientPrimaryLight}}" />
+                                                    </magic:LinearGradient>
+                                                </magic:GradientView.GradientSource>
+                                            </magic:GradientView>
+                                            <Grid
+                                                Padding="16"
+                                                ColumnDefinitions="Auto,*,Auto"
+                                                ColumnSpacing="12"
                                                 >
-                                                <Image
-                                                    HeightRequest="45"
-                                                    HorizontalOptions="Center"
-                                                    Source="{Binding Owner.Image}"
+                                                <pancake:PancakeView
+                                                    Padding="0"
+                                                    Border="{pancake:BorderMarkup Thickness=2,
+                                                                                  Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
+                                                                                                         Light={StaticResource ColorPrimary300}}}"
+                                                    CornerRadius="20"
+                                                    HeightRequest="40"
+                                                    HorizontalOptions="Start"
                                                     VerticalOptions="Center"
-                                                    WidthRequest="45"
-                                                    />
-                                            </pancake:PancakeView>
-                                            <Label
-                                                Grid.Column="1"
-                                                Style="{StaticResource LabelBodySmall}"
-                                                VerticalTextAlignment="Center"
-                                                >
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="Owned by" />
-                                                        <Span Text="{x:Static system:Environment.NewLine}" />
-                                                        <Span Text="{Binding Name}" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <pancake:PancakeView
-                                                Grid.Column="2"
-                                                Padding="8"
-                                                CornerRadius="8"
-                                                HorizontalOptions="End"
-                                                VerticalOptions="Center"
-                                                >
-                                                <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="12">
+                                                    WidthRequest="40"
+                                                    >
                                                     <Image
-                                                        HeightRequest="16"
-                                                        HorizontalOptions="Start"
-                                                        Source="icon_ethereum"
+                                                        HeightRequest="45"
+                                                        HorizontalOptions="Center"
+                                                        Source="{Binding Owner.Image}"
                                                         VerticalOptions="Center"
+                                                        WidthRequest="45"
                                                         />
-                                                    <Label
-                                                        Grid.Column="1"
-                                                        FontFamily="FontMedium"
-                                                        HorizontalTextAlignment="End"
-                                                        Style="{StaticResource LabelBodySmall}"
-                                                        Text="{Binding Price, StringFormat='{0:N1} ETH'}"
-                                                        />
-                                                </Grid>
-                                            </pancake:PancakeView>
+                                                </pancake:PancakeView>
+                                                <Label
+                                                    Grid.Column="1"
+                                                    Style="{StaticResource LabelBodySmall}"
+                                                    VerticalTextAlignment="Center"
+                                                    >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{helpers:Translate HomeLabelOwnedBy}" />
+                                                            <Span Text="{x:Static system:Environment.NewLine}" />
+                                                            <Span Text="{Binding Name}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <pancake:PancakeView
+                                                    Grid.Column="2"
+                                                    Padding="8"
+                                                    BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                                                      Light={StaticResource ColorPrimary100}}"
+                                                    CornerRadius="8"
+                                                    HorizontalOptions="End"
+                                                    VerticalOptions="Center"
+                                                    >
+                                                    <Grid
+                                                        ColumnDefinitions="Auto,Auto"
+                                                        ColumnSpacing="12"
+                                                        HorizontalOptions="Fill"
+                                                        VerticalOptions="Fill"
+                                                        >
+                                                        <Image
+                                                            HeightRequest="16"
+                                                            HorizontalOptions="Start"
+                                                            Source="icon_ethereum"
+                                                            VerticalOptions="Center"
+                                                            />
+                                                        <Label
+                                                            Grid.Column="1"
+                                                            FontFamily="FontMedium"
+                                                            HorizontalTextAlignment="End"
+                                                            Style="{StaticResource LabelBodySmall}"
+                                                            Text="{Binding Price, StringFormat='{0:N1} ETH'}"
+                                                            VerticalTextAlignment="Center"
+                                                            />
+                                                    </Grid>
+                                                </pancake:PancakeView>
+                                            </Grid>
                                         </Grid>
                                     </pancake:PancakeView>
                                 </Grid>
