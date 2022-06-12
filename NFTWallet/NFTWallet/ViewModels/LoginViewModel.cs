@@ -2,7 +2,6 @@
 using NFTWallet.Views;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;

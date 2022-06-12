@@ -3,279 +3,79 @@
     x:Class="NFTWallet.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:NFTWallet.Controls"
-    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
-    xmlns:magic="http://magic.com/schemas/gradients"
-    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:contentViews="clr-namespace:NFTWallet.ContentViews"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="homePage"
     NavigationPage.HasNavigationBar="False"
     >
-    <ContentPage.Content>
-        <Grid
-            Padding="0,48,0,0"
-            RowDefinitions="Auto,Auto,40,*"
-            RowSpacing="16"
-            VerticalOptions="Start"
-            >
-            <FlexLayout
-                Margin="16,0"
-                AlignItems="Center"
-                Direction="Row"
-                HeightRequest="40"
-                HorizontalOptions="Fill"
-                JustifyContent="SpaceBetween"
-                VerticalOptions="Center"
-                >
-                <pancake:PancakeView
-                    Padding="4,6"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                      Light={StaticResource ColorPrimary100}}"
-                    CornerRadius="8"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Start"
-                    >
-                    <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="8">
-                        <pancake:PancakeView
-                            BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary900},
-                                                              Light={StaticResource ColorPrimary50}}"
-                            CornerRadius="20"
-                            HeightRequest="24"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"
-                            WidthRequest="24"
-                            >
-                            <Image
-                                HeightRequest="14.5"
-                                HorizontalOptions="Center"
-                                Source="icon_ethereum"
-                                VerticalOptions="Center"
-                                />
-                        </pancake:PancakeView>
-
-                        <Label
-                            Grid.Column="1"
-                            HorizontalOptions="Center"
-                            Style="{StaticResource LabelBodyLarge}"
-                            Text="12.3 ETH"
-                            VerticalOptions="Center"
-                            />
-
-                        <pancake:PancakeView
-                            Grid.Column="2"
-                            Padding="0"
-                            CornerRadius="20"
-                            HeightRequest="24"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"
-                            WidthRequest="24"
-                            >
-                            <Image Source="user_six" />
-                        </pancake:PancakeView>
-                    </Grid>
-                </pancake:PancakeView>
-
-                <Image
-                    HeightRequest="24"
-                    HorizontalOptions="End"
-                    Source="icon_notification"
-                    VerticalOptions="Center"
-                    />
-            </FlexLayout>
-
-            <controls:CustomEntry
-                Grid.Row="1"
-                Margin="16,0"
-                AccentColor="{StaticResource ColorSecondary900}"
-                CardBackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary900},
-                                                      Light={StaticResource ColorPrimary50}}"
-                CardBorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary500},
-                                                  Light={StaticResource ColorPrimary400}}"
-                LeadingIcon="icon_search"
-                LeadingIconColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
-                Placeholder="{helpers:Translate HomePlaceholderSearch}"
-                PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
-                ReturnType="Search"
-                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                            Light={StaticResource ColorPrimary900}}"
-                />
-
-            <CollectionView
-                Grid.Row="2"
-                Margin="16,8,0,0"
-                ItemsSource="{Binding Filters}"
-                VerticalOptions="Start"
-                >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="8" Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame
-                            Padding="12,8"
-                            xct:TouchEffect.Command="{Binding Source={x:Reference homePage}, Path=BindingContext.FilterCommand}"
-                            xct:TouchEffect.CommandParameter="{Binding .}"
-                            xct:TouchEffect.NativeAnimation="True"
-                            BackgroundColor="{StaticResource ColorTransparent}"
-                            BorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                          Light={StaticResource ColorPrimary100}}"
-                            CornerRadius="8"
-                            HeightRequest="36"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Start"
-                            >
-                            <Label
-                                FontFamily="FontMedium"
-                                Style="{StaticResource LabelCaptionSmall}"
-                                Text="{Binding Name}"
-                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                            Light={StaticResource ColorPrimary900}}"
-                                VerticalOptions="Center"
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="TabItemTemplate">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                                            Light={StaticResource ColorPrimary900}}"
+                        HeightRequest="32"
+                        HorizontalOptions="Center"
+                        IsVisible="True"
+                        Source="{TemplateBinding Icon}"
+                        VerticalOptions="Center"
+                        >
+                        <Image.Triggers>
+                            <DataTrigger
+                                Binding="{TemplateBinding IsSelected}"
+                                TargetType="Image"
+                                Value="True"
                                 >
-                                <Label.Triggers>
-                                    <DataTrigger
-                                        Binding="{Binding Selected}"
-                                        TargetType="Label"
-                                        Value="True"
-                                        >
-                                        <Setter Property="TextColor" Value="{StaticResource ColorSecondary900}" />
-                                    </DataTrigger>
-                                </Label.Triggers>
-                            </Label>
-                            <Frame.Triggers>
-                                <DataTrigger
-                                    Binding="{Binding Selected}"
-                                    TargetType="Frame"
-                                    Value="True"
-                                    >
-                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimary800}, Light={StaticResource ColorPrimary100}}" />
-                                </DataTrigger>
-                                <DataTrigger
-                                    Binding="{Binding Selected}"
-                                    TargetType="Frame"
-                                    Value="False"
-                                    >
-                                    <Setter Property="BackgroundColor" Value="{StaticResource ColorTransparent}" />
-                                </DataTrigger>
-                            </Frame.Triggers>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
 
-            <CollectionView
-                Grid.Row="3"
-                Margin="0,8,0,0"
-                ItemsSource="{Binding ForSale}"
+                    <Image
+                        xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                        HeightRequest="32"
+                        IsVisible="False"
+                        Source="{TemplateBinding Icon}"
+                        >
+                        <Image.Triggers>
+                            <DataTrigger
+                                Binding="{TemplateBinding IsSelected}"
+                                TargetType="Image"
+                                Value="True"
+                                >
+                                <Setter Property="IsVisible" Value="True" />
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <xct:TabView
+                IsSwipeEnabled="False"
+                IsTabTransitionEnabled="False"
+                TabStripHeight="80"
+                TabStripPlacement="Bottom"
                 >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="16,0">
-                            <pancake:PancakeView CornerRadius="8">
-                                <Grid>
-                                    <Image
-                                        Aspect="AspectFill"
-                                        HeightRequest="380"
-                                        Source="{Binding Image}"
-                                        WidthRequest="342"
-                                        />
-                                    <pancake:PancakeView
-                                        Padding="0"
-                                        HeightRequest="82"
-                                        VerticalOptions="End"
-                                        >
-                                        <Grid HorizontalOptions="FillAndExpand">
-                                            <magic:GradientView HorizontalOptions="Fill" VerticalOptions="Fill">
-                                                <magic:GradientView.GradientSource>
-                                                    <magic:LinearGradient Angle="0">
-                                                        <magic:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorGradientSecondaryDark}, Light={StaticResource ColorGradientSecondaryLight}}" />
-                                                        <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorGradientPrimaryDark}, Light={StaticResource ColorGradientPrimaryLight}}" />
-                                                    </magic:LinearGradient>
-                                                </magic:GradientView.GradientSource>
-                                            </magic:GradientView>
-                                            <Grid
-                                                Padding="16"
-                                                ColumnDefinitions="Auto,*,Auto"
-                                                ColumnSpacing="12"
-                                                >
-                                                <pancake:PancakeView
-                                                    Padding="0"
-                                                    Border="{pancake:BorderMarkup Thickness=2,
-                                                                                  Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
-                                                                                                         Light={StaticResource ColorPrimary300}}}"
-                                                    CornerRadius="20"
-                                                    HeightRequest="40"
-                                                    HorizontalOptions="Start"
-                                                    VerticalOptions="Center"
-                                                    WidthRequest="40"
-                                                    >
-                                                    <Image
-                                                        HeightRequest="45"
-                                                        HorizontalOptions="Center"
-                                                        Source="{Binding Owner.Image}"
-                                                        VerticalOptions="Center"
-                                                        WidthRequest="45"
-                                                        />
-                                                </pancake:PancakeView>
-                                                <Label
-                                                    Grid.Column="1"
-                                                    Style="{StaticResource LabelBodySmall}"
-                                                    VerticalTextAlignment="Center"
-                                                    >
-                                                    <Label.FormattedText>
-                                                        <FormattedString>
-                                                            <Span Text="{helpers:Translate HomeLabelOwnedBy}" />
-                                                            <Span Text="{x:Static system:Environment.NewLine}" />
-                                                            <Span Text="{Binding Name}" />
-                                                        </FormattedString>
-                                                    </Label.FormattedText>
-                                                </Label>
-                                                <pancake:PancakeView
-                                                    Grid.Column="2"
-                                                    Padding="8"
-                                                    BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                                                      Light={StaticResource ColorPrimary100}}"
-                                                    CornerRadius="8"
-                                                    HorizontalOptions="End"
-                                                    VerticalOptions="Center"
-                                                    >
-                                                    <Grid
-                                                        ColumnDefinitions="Auto,Auto"
-                                                        ColumnSpacing="12"
-                                                        HorizontalOptions="Fill"
-                                                        VerticalOptions="Fill"
-                                                        >
-                                                        <Image
-                                                            HeightRequest="16"
-                                                            HorizontalOptions="Start"
-                                                            Source="icon_ethereum"
-                                                            VerticalOptions="Center"
-                                                            />
-                                                        <Label
-                                                            Grid.Column="1"
-                                                            FontFamily="FontMedium"
-                                                            HorizontalTextAlignment="End"
-                                                            Style="{StaticResource LabelBodySmall}"
-                                                            Text="{Binding Price, StringFormat='{0:N1} ETH'}"
-                                                            VerticalTextAlignment="Center"
-                                                            />
-                                                    </Grid>
-                                                </pancake:PancakeView>
-                                            </Grid>
-                                        </Grid>
-                                    </pancake:PancakeView>
-                                </Grid>
-                            </pancake:PancakeView>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                <xct:TabViewItem ControlTemplate="{StaticResource TabItemTemplate}" Icon="icon_home">
+                    <contentViews:HomeContentView />
+                </xct:TabViewItem>
+                <xct:TabViewItem ControlTemplate="{StaticResource TabItemTemplate}" Icon="icon_trends">
+                    <contentViews:TrendsContentView />
+                </xct:TabViewItem>
+
+                <xct:TabViewItem ControlTemplate="{StaticResource TabItemTemplate}" Icon="icon_circle_plus" />
+
+                <xct:TabViewItem ControlTemplate="{StaticResource TabItemTemplate}" Icon="icon_wallet">
+                    <contentViews:WalletContentView />
+                </xct:TabViewItem>
+                <xct:TabViewItem ControlTemplate="{StaticResource TabItemTemplate}" Icon="icon_user">
+                    <contentViews:ProfileContentView />
+                </xct:TabViewItem>
+            </xct:TabView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

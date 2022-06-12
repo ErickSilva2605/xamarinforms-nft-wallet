@@ -14,8 +14,8 @@ namespace NFTWallet.ViewModels
 {
     public class HomeViewModel : BaseViewModel, IInitializeAsync
     {
-        IFilterService _filterService;
-        ISaleService _saleService;
+        private IFilterService _filterService;
+        private ISaleService _saleService;
 
         private ObservableRangeCollection<FilterModel> _filter;
         private ObservableRangeCollection<ForSaleModel> _forSale;
@@ -46,7 +46,6 @@ namespace NFTWallet.ViewModels
             FilterCommand = new Command<FilterModel>((filterSelected) => ExecuteFilterCommand(filterSelected));
 
             Initialization = InitializeAsync();
-            _saleService = saleService;
         }
 
         private async Task InitializeAsync()
