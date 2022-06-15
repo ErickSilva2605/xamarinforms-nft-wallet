@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DetailButtonBid" xml:space="preserve">
+    <value>Place Bid</value>
+  </data>
+  <data name="DetailLabelLatestBids" xml:space="preserve">
+    <value>Latest bids</value>
+  </data>
+  <data name="DetailLabelTitle" xml:space="preserve">
+    <value>Detail</value>
+  </data>
   <data name="GetStartedButton" xml:space="preserve">
     <value>Let's Start</value>
   </data>
-  <data name="GetStartedSubtitle" xml:space="preserve">
+  <data name="GetStartedLabelSubtitle" xml:space="preserve">
     <value>Discover the Most Premium, Unique and Exclusive NFT Collections</value>
   </data>
-  <data name="GetStartedTitle" xml:space="preserve">
+  <data name="GetStartedLabelTitle" xml:space="preserve">
     <value>SUCURI NFT</value>
   </data>
   <data name="HomeLabelOwnedBy" xml:space="preserve">
@@ -138,14 +147,23 @@
   <data name="LoginButtonMetamesk" xml:space="preserve">
     <value>Login with Metamesk</value>
   </data>
-  <data name="LoginForgotPassword" xml:space="preserve">
+  <data name="LoginLabelForgotPassword" xml:space="preserve">
     <value>Forgot password?</value>
+  </data>
+  <data name="LoginLabelNotResgistered" xml:space="preserve">
+    <value>Not registered yet?</value>
   </data>
   <data name="LoginLabelOr" xml:space="preserve">
     <value>or</value>
   </data>
-  <data name="LoginNotResgistered" xml:space="preserve">
-    <value>Not registered yet?</value>
+  <data name="LoginLabelRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="LoginLabelSubtitle" xml:space="preserve">
+    <value>Discover the Most Premium, Unique and Exclusive NFT Collections</value>
+  </data>
+  <data name="LoginLabelTitle" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="LoginPlaceholderEmail" xml:space="preserve">
     <value>E-mail</value>
@@ -153,14 +171,14 @@
   <data name="LoginPlaceholderPassword" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="LoginRegister" xml:space="preserve">
-    <value>Register</value>
+  <data name="ProfileLabelFollowers" xml:space="preserve">
+    <value>Followers</value>
   </data>
-  <data name="LoginSubtitle" xml:space="preserve">
-    <value>Discover the Most Premium, Unique and Exclusive NFT Collections</value>
+  <data name="ProfileLabelFollowing" xml:space="preserve">
+    <value>Following</value>
   </data>
-  <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+  <data name="ProfileLabelLikes" xml:space="preserve">
+    <value>Likes</value>
   </data>
   <data name="TrendsLabelOrder" xml:space="preserve">
     <value>Most recent</value>
@@ -170,5 +188,20 @@
   </data>
   <data name="TrendsLabelTitle" xml:space="preserve">
     <value>Trends</value>
+  </data>
+  <data name="WalletLabelDeposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="WalletLabelSend" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="WalletLabelTitle" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="WalletLabelTransactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="WalletLabelWithdrawal" xml:space="preserve">
+    <value>Withdrawal</value>
   </data>
 </root>

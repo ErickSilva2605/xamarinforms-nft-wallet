@@ -29,13 +29,13 @@
                 <Label
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource LabelTitleNormal}"
-                    Text="{helpers:Translate GetStartedTitle}"
+                    Text="{helpers:Translate GetStartedLabelTitle}"
                     />
                 <Label
                     Grid.Row="1"
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource LabelBodyNormal}"
-                    Text="{helpers:Translate GetStartedSubtitle}"
+                    Text="{helpers:Translate GetStartedLabelSubtitle}"
                     />
                 <Button
                     Grid.Row="2"

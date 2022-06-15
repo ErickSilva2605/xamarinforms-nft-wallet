@@ -61,6 +61,33 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Place Bid.
+        /// </summary>
+        internal static string DetailButtonBid {
+            get {
+                return ResourceManager.GetString("DetailButtonBid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Latest bids.
+        /// </summary>
+        internal static string DetailLabelLatestBids {
+            get {
+                return ResourceManager.GetString("DetailLabelLatestBids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Detail.
+        /// </summary>
+        internal static string DetailLabelTitle {
+            get {
+                return ResourceManager.GetString("DetailLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Let&apos;s Start.
         /// </summary>
         internal static string GetStartedButton {
@@ -72,18 +99,18 @@ namespace NFTWallet.Resources.Language {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Discover the Most Premium, Unique and Exclusive NFT Collections.
         /// </summary>
-        internal static string GetStartedSubtitle {
+        internal static string GetStartedLabelSubtitle {
             get {
-                return ResourceManager.GetString("GetStartedSubtitle", resourceCulture);
+                return ResourceManager.GetString("GetStartedLabelSubtitle", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a SUCURI NFT.
         /// </summary>
-        internal static string GetStartedTitle {
+        internal static string GetStartedLabelTitle {
             get {
-                return ResourceManager.GetString("GetStartedTitle", resourceCulture);
+                return ResourceManager.GetString("GetStartedLabelTitle", resourceCulture);
             }
         }
         
@@ -126,9 +153,18 @@ namespace NFTWallet.Resources.Language {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Forgot password?.
         /// </summary>
-        internal static string LoginForgotPassword {
+        internal static string LoginLabelForgotPassword {
             get {
-                return ResourceManager.GetString("LoginForgotPassword", resourceCulture);
+                return ResourceManager.GetString("LoginLabelForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Not registered yet?.
+        /// </summary>
+        internal static string LoginLabelNotResgistered {
+            get {
+                return ResourceManager.GetString("LoginLabelNotResgistered", resourceCulture);
             }
         }
         
@@ -142,11 +178,29 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Not registered yet?.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Register.
         /// </summary>
-        internal static string LoginNotResgistered {
+        internal static string LoginLabelRegister {
             get {
-                return ResourceManager.GetString("LoginNotResgistered", resourceCulture);
+                return ResourceManager.GetString("LoginLabelRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Discover the Most Premium, Unique and Exclusive NFT Collections.
+        /// </summary>
+        internal static string LoginLabelSubtitle {
+            get {
+                return ResourceManager.GetString("LoginLabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
+        /// </summary>
+        internal static string LoginLabelTitle {
+            get {
+                return ResourceManager.GetString("LoginLabelTitle", resourceCulture);
             }
         }
         
@@ -169,29 +223,29 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Register.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Followers.
         /// </summary>
-        internal static string LoginRegister {
+        internal static string ProfileLabelFollowers {
             get {
-                return ResourceManager.GetString("LoginRegister", resourceCulture);
+                return ResourceManager.GetString("ProfileLabelFollowers", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Discover the Most Premium, Unique and Exclusive NFT Collections.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Following.
         /// </summary>
-        internal static string LoginSubtitle {
+        internal static string ProfileLabelFollowing {
             get {
-                return ResourceManager.GetString("LoginSubtitle", resourceCulture);
+                return ResourceManager.GetString("ProfileLabelFollowing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Likes.
         /// </summary>
-        internal static string LoginTitle {
+        internal static string ProfileLabelLikes {
             get {
-                return ResourceManager.GetString("LoginTitle", resourceCulture);
+                return ResourceManager.GetString("ProfileLabelLikes", resourceCulture);
             }
         }
         
@@ -219,6 +273,51 @@ namespace NFTWallet.Resources.Language {
         internal static string TrendsLabelTitle {
             get {
                 return ResourceManager.GetString("TrendsLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Deposit.
+        /// </summary>
+        internal static string WalletLabelDeposit {
+            get {
+                return ResourceManager.GetString("WalletLabelDeposit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Send.
+        /// </summary>
+        internal static string WalletLabelSend {
+            get {
+                return ResourceManager.GetString("WalletLabelSend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Wallet.
+        /// </summary>
+        internal static string WalletLabelTitle {
+            get {
+                return ResourceManager.GetString("WalletLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Transactions.
+        /// </summary>
+        internal static string WalletLabelTransactions {
+            get {
+                return ResourceManager.GetString("WalletLabelTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Withdrawal.
+        /// </summary>
+        internal static string WalletLabelWithdrawal {
+            get {
+                return ResourceManager.GetString("WalletLabelWithdrawal", resourceCulture);
             }
         }
     }

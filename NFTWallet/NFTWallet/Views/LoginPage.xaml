@@ -25,7 +25,7 @@
                 Margin="0,16,0,0"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource LabelTitleLarge}"
-                Text="{helpers:Translate LoginTitle}"
+                Text="{helpers:Translate LoginLabelTitle}"
                 VerticalTextAlignment="Start"
                 />
 
@@ -33,7 +33,7 @@
                 Margin="8,0"
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource LabelSubtitleNormal}"
-                Text="{helpers:Translate LoginSubtitle}"
+                Text="{helpers:Translate LoginLabelSubtitle}"
                 VerticalTextAlignment="Start"
                 />
 
@@ -82,7 +82,7 @@
                 HorizontalOptions="End"
                 HorizontalTextAlignment="End"
                 Style="{StaticResource LabelBodyNormal}"
-                Text="{helpers:Translate LoginForgotPassword}"
+                Text="{helpers:Translate LoginLabelForgotPassword}"
                 VerticalTextAlignment="Start"
                 />
 
@@ -137,9 +137,9 @@
                 >
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{helpers:Translate LoginNotResgistered}" />
+                        <Span Text="{helpers:Translate LoginLabelNotResgistered}" />
                         <Span Text=" " />
-                        <Span Text="{helpers:Translate LoginRegister}" TextColor="{StaticResource ColorSecondary900}" />
+                        <Span Text="{helpers:Translate LoginLabelRegister}" TextColor="{StaticResource ColorSecondary900}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
