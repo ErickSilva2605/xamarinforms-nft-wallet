@@ -162,4 +162,13 @@
   <data name="LoginTitle" xml:space="preserve">
     <value>Entrar</value>
   </data>
+  <data name="TrendsLabelOrder" xml:space="preserve">
+    <value>Mais recentes</value>
+  </data>
+  <data name="TrendsLabelSubtitle" xml:space="preserve">
+    <value>Os tops NFT’s rankeados por volume de vendas e valores</value>
+  </data>
+  <data name="TrendsLabelTitle" xml:space="preserve">
+    <value>Tendências</value>
+  </data>
 </root>

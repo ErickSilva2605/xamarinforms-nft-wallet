@@ -3,10 +3,206 @@
     x:Class="NFTWallet.ContentViews.TrendsContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     >
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Hello Xamarin.Forms!" />
-        </StackLayout>
+        <Grid
+            Padding="0,48,0,0"
+            RowDefinitions="Auto,Auto,*"
+            RowSpacing="32"
+            >
+            <StackLayout
+                Padding="80,0"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                Spacing="8"
+                VerticalOptions="Start"
+                >
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelTitleLarge}"
+                    Text="{helpers:Translate TrendsLabelTitle}"
+                    VerticalTextAlignment="Start"
+                    />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelSubtitleNormal}"
+                    Text="{helpers:Translate TrendsLabelSubtitle}"
+                    VerticalTextAlignment="Start"
+                    />
+            </StackLayout>
+
+            <pancake:PancakeView
+                Grid.Row="1"
+                Margin="16,0"
+                Padding="16"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                  Light={StaticResource ColorPrimary100}}"
+                CornerRadius="8"
+                >
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Style="{StaticResource LabelBodyNormal}"
+                        Text="{helpers:Translate TrendsLabelOrder}"
+                        VerticalOptions="Center"
+                        />
+                    <Image
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                                            Light={StaticResource ColorPrimary900}}"
+                        HeightRequest="24"
+                        HorizontalOptions="End"
+                        Source="icon_angle_down"
+                        VerticalOptions="Center"
+                        />
+                </StackLayout>
+            </pancake:PancakeView>
+
+            <CollectionView
+                Grid.Row="2"
+                ItemsSource="{Binding TrendViewModel.Trends}"
+                VerticalOptions="Start"
+                >
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="16,0"
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="16"
+                            RowDefinitions="Auto,1"
+                            RowSpacing="16"
+                            VerticalOptions="Fill"
+                            >
+                            <Grid
+                                Padding="1"
+                                HeightRequest="45"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                WidthRequest="45"
+                                >
+                                <pancake:PancakeView
+                                    Padding="0"
+                                    Border="{pancake:BorderMarkup Thickness=2,
+                                                                  Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
+                                                                                         Light={StaticResource ColorPrimary300}}}"
+                                    CornerRadius="20"
+                                    HeightRequest="40"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    WidthRequest="40"
+                                    >
+                                    <Image
+                                        HeightRequest="45"
+                                        HorizontalOptions="Center"
+                                        Source="{Binding User.Image}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="45"
+                                        />
+                                </pancake:PancakeView>
+                                <Image
+                                    HeightRequest="20"
+                                    HorizontalOptions="End"
+                                    Source="icon_verified"
+                                    VerticalOptions="End"
+                                    />
+                            </Grid>
+                            <StackLayout
+                                Grid.Column="1"
+                                Orientation="Vertical"
+                                Spacing="8"
+                                VerticalOptions="End"
+                                >
+                                <Label
+                                    Style="{StaticResource LabelBodyLarge}"
+                                    Text="{Binding User.Name}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                                <Label
+                                    Style="{StaticResource LabelCaptionSmall}"
+                                    Text="{Binding User.UserName}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                            </StackLayout>
+                            <StackLayout
+                                Grid.Column="2"
+                                Orientation="Vertical"
+                                Spacing="2"
+                                VerticalOptions="Center"
+                                >
+                                <StackLayout Orientation="Horizontal" Spacing="8">
+                                    <Image HeightRequest="20" Source="icon_ethereum" />
+                                    <Label
+                                        HorizontalTextAlignment="End"
+                                        Style="{StaticResource LabelBodyNormal}"
+                                        Text="{Binding Value, StringFormat='{0:N1} ETH'}"
+                                        VerticalTextAlignment="Center"
+                                        />
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="End"
+                                    Orientation="Horizontal"
+                                    Spacing="8"
+                                    >
+                                    <Image
+                                        xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryGreen}"
+                                        HeightRequest="20"
+                                        IsVisible="False"
+                                        Source="icon_arrow_up"
+                                        >
+                                        <Image.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding IsRising}"
+                                                TargetType="Image"
+                                                Value="True"
+                                                >
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                    <Image
+                                        xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryRed}"
+                                        HeightRequest="20"
+                                        IsVisible="False"
+                                        Source="icon_arrow_down"
+                                        >
+                                        <Image.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding IsRising}"
+                                                TargetType="Image"
+                                                Value="False"
+                                                >
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                    <Label
+                                        HorizontalTextAlignment="End"
+                                        Style="{StaticResource LabelBodyNormal}"
+                                        Text="{Binding Percentage, StringFormat='{0:P0}'}"
+                                        VerticalTextAlignment="Center"
+                                        />
+                                </StackLayout>
+                            </StackLayout>
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                                  Light={StaticResource ColorPrimary100}}"
+                                HeightRequest="1"
+                                VerticalOptions="FillAndExpand"
+                                />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentView.Content>
 </ContentView>

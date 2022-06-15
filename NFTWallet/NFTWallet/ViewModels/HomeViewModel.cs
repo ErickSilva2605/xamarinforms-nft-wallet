@@ -14,8 +14,8 @@ namespace NFTWallet.ViewModels
 {
     public class HomeViewModel : BaseViewModel, IInitializeAsync
     {
-        private IFilterService _filterService;
-        private ISaleService _saleService;
+        private readonly IFilterService _filterService;
+        private readonly ISaleService _saleService;
 
         private ObservableRangeCollection<FilterModel> _filter;
         private ObservableRangeCollection<ForSaleModel> _forSale;

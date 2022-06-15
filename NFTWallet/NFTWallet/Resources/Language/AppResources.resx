@@ -162,4 +162,13 @@
   <data name="LoginTitle" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="TrendsLabelOrder" xml:space="preserve">
+    <value>Most recent</value>
+  </data>
+  <data name="TrendsLabelSubtitle" xml:space="preserve">
+    <value>The top NFT's ranked by sales volume and values</value>
+  </data>
+  <data name="TrendsLabelTitle" xml:space="preserve">
+    <value>Trends</value>
+  </data>
 </root>

@@ -11,5 +11,11 @@
         internal const int IOS_DARK_MODE_MINIMAL_VERSION = 13;
         internal const string EMAIL_DEFAULT = "teste@email.com";
         internal const string PASSWORD_DEFAULT = "123456";
+        internal const string USER_IMAGE_ONE = "user_one";
+        internal const string USER_IMAGE_TWO = "user_two";
+        internal const string USER_IMAGE_THREE = "user_three";
+        internal const string USER_IMAGE_FOUR = "user_four";
+        internal const string USER_IMAGE_FIVE = "user_five";
+        internal const string USER_IMAGE_SIX = "user_six";
     }
 }

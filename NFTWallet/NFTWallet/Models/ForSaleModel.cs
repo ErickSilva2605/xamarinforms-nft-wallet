@@ -6,6 +6,6 @@
 
         public double Price { get; set; }
 
-        public OwnerModel Owner { get; set; }
+        public UserModel Owner { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NFTWallet.Interfaces;
+﻿using NFTWallet.Helpers;
+using NFTWallet.Interfaces;
 using NFTWallet.Models;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace NFTWallet.Services
                     Image = "nft_one",
                     Name = "The Unkown",
                     Price = 1.2,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_one" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_ONE, UserName = "@unkown" }
                 }
             );
 
@@ -38,7 +39,7 @@ namespace NFTWallet.Services
                     Image = "nft_two",
                     Name = "The Unkown",
                     Price = 2.3,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_two" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_TWO, UserName = "@unkown" }
                 }
             );
 
@@ -49,7 +50,7 @@ namespace NFTWallet.Services
                     Image = "nft_three",
                     Name = "The Unkown",
                     Price = 4.1,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_three" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_THREE, UserName = "@unkown" }
                 }
             );
 
@@ -60,7 +61,7 @@ namespace NFTWallet.Services
                     Image = "nft_four",
                     Name = "The Unkown",
                     Price = 1.0,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_four" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_FOUR, UserName = "@unkown" }
                 }
             );
 
@@ -71,7 +72,7 @@ namespace NFTWallet.Services
                     Image = "nft_five",
                     Name = "The Unkown",
                     Price = 1.8,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_five" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_FIVE, UserName = "@unkown" }
                 }
             );
 
@@ -82,7 +83,7 @@ namespace NFTWallet.Services
                     Image = "nft_six",
                     Name = "The Unkown",
                     Price = 2.5,
-                    Owner = new OwnerModel { Name = "Unkown", Image = "user_six" }
+                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" }
                 }
             );
 

@@ -194,5 +194,32 @@ namespace NFTWallet.Resources.Language {
                 return ResourceManager.GetString("LoginTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Most recent.
+        /// </summary>
+        internal static string TrendsLabelOrder {
+            get {
+                return ResourceManager.GetString("TrendsLabelOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The top NFT&apos;s ranked by sales volume and values.
+        /// </summary>
+        internal static string TrendsLabelSubtitle {
+            get {
+                return ResourceManager.GetString("TrendsLabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Trends.
+        /// </summary>
+        internal static string TrendsLabelTitle {
+            get {
+                return ResourceManager.GetString("TrendsLabelTitle", resourceCulture);
+            }
+        }
     }
 }
