@@ -63,7 +63,7 @@ namespace NFTWallet.ViewModels
             {
                 IsBusy = true;
 
-                var filters = await _filterService.GetFiltersAsync(TranslateManagerHelper.Instance.GetCulture());
+                var filters = await _filterService.GetFiltersAsync(TranslateManagerHelper.Instance.GetCurrentCulture());
 
                 if (filters.Any())
                     Filters = new ObservableRangeCollection<FilterModel>(filters);

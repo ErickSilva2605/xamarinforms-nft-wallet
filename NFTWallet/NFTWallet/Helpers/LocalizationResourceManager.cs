@@ -18,7 +18,7 @@ namespace NFTWallet.Helpers
             }
         }
 
-        public void InitCulture() 
+        public void InitCulture()
         {
             string language = Preferences.Get(Constants.PREFERENCES_KEY_CULTURE_SELECTED, string.Empty);
             if (!string.IsNullOrEmpty(language))
@@ -27,21 +27,32 @@ namespace NFTWallet.Helpers
                 SetCulture(CultureInfo.InstalledUICulture);
         }
 
-        public string GetCulture()
+        public string GetCurrentCulture()
         {
             string language = Preferences.Get(Constants.PREFERENCES_KEY_CULTURE_SELECTED, string.Empty);
             if (!string.IsNullOrEmpty(language))
                 return language;
             else
-                return CultureInfo.InstalledUICulture.Name;
+                return GetCulture().Name;
         }
 
-        public void SetCulture(CultureInfo language)
+        public void ChangeCulture(CultureInfo language)
+        {
+            string languageName = Preferences.Get(Constants.PREFERENCES_KEY_CULTURE_SELECTED, string.Empty);
+            if (!string.IsNullOrEmpty(languageName) || language.Name.Equals(languageName))
+                return;
+
+            Preferences.Set(Constants.PREFERENCES_KEY_CULTURE_SELECTED, language.Name);
+            SetCulture(language);
+        }
+
+        private CultureInfo GetCulture() =>
+            CultureInfo.InstalledUICulture;
+
+        private void SetCulture(CultureInfo language)
         {
             Thread.CurrentThread.CurrentUICulture = language;
             AppResources.Culture = language;
-
-            Preferences.Set(Constants.PREFERENCES_KEY_CULTURE_SELECTED, language.Name);
 
             Invalidate();
         }
