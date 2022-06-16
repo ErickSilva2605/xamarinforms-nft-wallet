@@ -27,6 +27,7 @@ namespace NFTWallet.ViewModels
             : base(navigation)
         {
             _trendService = trendService;
+            Trends = new ObservableRangeCollection<TrendModel>();
 
             Initialization = InitializeAsync();
         }

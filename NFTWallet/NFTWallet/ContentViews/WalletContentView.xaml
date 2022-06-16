@@ -3,10 +3,255 @@
     x:Class="NFTWallet.ContentViews.WalletContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     >
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Hello Xamarin.Forms!" />
-        </StackLayout>
+        <Grid
+            Padding="0,48,0,0"
+            RowDefinitions="Auto,Auto,Auto,Auto,*"
+            RowSpacing="24"
+            >
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelTitleSmall}"
+                Text="{helpers:Translate WalletLabelTitle}"
+                VerticalTextAlignment="Start"
+                />
+            <pancake:PancakeView
+                Grid.Row="1"
+                Margin="16,8"
+                Padding="16"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                  Light={StaticResource ColorPrimary100}}"
+                CornerRadius="8"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                >
+                <StackLayout Orientation="Vertical" Spacing="8">
+                    <Image
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Source="icon_ethereum"
+                        VerticalOptions="Start"
+                        />
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Style="{StaticResource LabelTitleNormal}" Text="{Binding WalletViewModel.Wallet.CryptoBalance, StringFormat='{0:N3} ETH'}" />
+                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                <Span Style="{StaticResource LabelBodySmall}" Text="{Binding WalletViewModel.Wallet.Balance, StringFormat='{0:C2}'}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </pancake:PancakeView>
+            <FlexLayout
+                Grid.Row="2"
+                Margin="16,0,16,8"
+                AlignItems="Center"
+                Direction="Row"
+                HeightRequest="68"
+                JustifyContent="SpaceBetween"
+                VerticalOptions="Start"
+                >
+
+                <pancake:PancakeView
+                    Padding="10"
+                    xct:TouchEffect.NativeAnimation="True"
+                    CornerRadius="8"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="65"
+                    >
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            HeightRequest="24"
+                            HorizontalOptions="Center"
+                            Source="icon_arrow_up_to_line"
+                            VerticalOptions="Center"
+                            />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelCaptionSmall}"
+                            Text="{helpers:Translate WalletLabelDeposit}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+                <pancake:PancakeView
+                    Padding="10"
+                    xct:TouchEffect.NativeAnimation="True"
+                    CornerRadius="8"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="65"
+                    >
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            HeightRequest="24"
+                            HorizontalOptions="Center"
+                            Source="icon_arrow_down_to_line"
+                            VerticalOptions="Center"
+                            />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelCaptionSmall}"
+                            Text="{helpers:Translate WalletLabelWithdrawal}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+                <pancake:PancakeView
+                    Padding="10"
+                    xct:TouchEffect.NativeAnimation="True"
+                    CornerRadius="8"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="65"
+                    >
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            HeightRequest="24"
+                            HorizontalOptions="Center"
+                            Source="icon_send"
+                            VerticalOptions="Center"
+                            />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelCaptionSmall}"
+                            Text="{helpers:Translate WalletLabelSend}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+            </FlexLayout>
+            <Label
+                Grid.Row="3"
+                Margin="16,0"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource LabelTitleSmall}"
+                Text="{helpers:Translate WalletLabelTransactions}"
+                VerticalTextAlignment="Start"
+                />
+            <CollectionView Grid.Row="4" ItemsSource="{Binding WalletViewModel.Wallet.Transactions}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="16,5,16,0"
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="16"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryGreen}"
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                IsVisible="False"
+                                Source="icon_arrow_down"
+                                VerticalOptions="Center"
+                                >
+                                <Image.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsDeposit}"
+                                        TargetType="Image"
+                                        Value="True"
+                                        >
+                                        <Setter Property="IsVisible" Value="True" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryRed}"
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                IsVisible="False"
+                                Source="icon_arrow_up"
+                                VerticalOptions="Center"
+                                >
+                                <Image.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsDeposit}"
+                                        TargetType="Image"
+                                        Value="False"
+                                        >
+                                        <Setter Property="IsVisible" Value="True" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Orientation="Vertical"
+                                Spacing="5"
+                                VerticalOptions="Center"
+                                >
+                                <Label
+                                    Style="{StaticResource LabelSubtitleNormal}"
+                                    Text="{Binding Title}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                                <Label
+                                    Style="{StaticResource LabelBodySmall}"
+                                    Text="{Binding Data, StringFormat='{0:dd/MM/yyyy - HH:mm}'}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                            </StackLayout>
+
+                            <StackLayout
+                                Grid.Column="2"
+                                HorizontalOptions="End"
+                                Orientation="Vertical"
+                                Spacing="5"
+                                VerticalOptions="Center"
+                                >
+                                <Label
+                                    HorizontalTextAlignment="End"
+                                    Style="{StaticResource LabelSubtitleNormal}"
+                                    VerticalTextAlignment="Center"
+                                    >
+                                    <Label.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding IsDeposit}"
+                                            TargetType="Label"
+                                            Value="True"
+                                            >
+                                            <Setter Property="Text" Value="{Binding CryptoAmount, StringFormat='+ {0:N4} ETH'}" />
+                                            <Setter Property="TextColor" Value="{StaticResource ColorTertiaryGreen}" />
+                                        </DataTrigger>
+                                        <DataTrigger
+                                            Binding="{Binding IsDeposit}"
+                                            TargetType="Label"
+                                            Value="False"
+                                            >
+                                            <Setter Property="Text" Value="{Binding CryptoAmount, StringFormat='- {0:N3} ETH'}" />
+                                            <Setter Property="TextColor" Value="{StaticResource ColorTertiaryRed}" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label
+                                    HorizontalTextAlignment="End"
+                                    Style="{StaticResource LabelBodySmall}"
+                                    Text="{Binding Amount, StringFormat='{0:C2}'}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                            </StackLayout>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentView.Content>
 </ContentView>
