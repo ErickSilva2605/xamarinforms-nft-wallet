@@ -1,7 +1,6 @@
 ﻿using NFTWallet.Helpers;
 using NFTWallet.Views;
-using System.Globalization;
-using System.Threading;
+using Syncfusion.Licensing;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -12,7 +11,10 @@ namespace NFTWallet
         public App()
         {
             TranslateManagerHelper.Instance.InitCulture();
+            SyncfusionLicenseProvider.RegisterLicense(Constants.SYNCFUSION_LICENSE_KEY);
+
             InitializeComponent();
+
             ThemeHelper.InitTheme();
 
             if(Preferences.Get(Constants.PREFERENCES_KEY_AUTHENTICATED, false))

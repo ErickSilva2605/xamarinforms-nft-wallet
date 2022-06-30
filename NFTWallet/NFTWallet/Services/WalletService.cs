@@ -27,8 +27,43 @@ namespace NFTWallet.Services
             {
                 Balance = balance,
                 CryptoBalance = language == Constants.CULTURE_ENGLISH ? GetCryptoValueEnglish(balance) : GetCryptoValuePortuguese(balance),
+                ChartData = GetChartData(),
                 Transactions = transactions
             };
+        }
+
+        private ChartModel GetChartData()
+        {
+            var chartValues = GetChartValues();
+
+            return new ChartModel 
+            {
+                DateMax = chartValues.Select(s => s.Date).Max().Date,
+                DateMin = chartValues.Select(s => s.Date).Min().Date,
+                Interval = 2000,
+                ValueMax = 10000,
+                ValueMin = 0,
+                Values = chartValues
+            };
+        }
+
+        private ICollection<ChartValueModel> GetChartValues()
+        {
+            Random random = new Random();
+            var chartValues = new List<ChartValueModel>();
+
+            for (int i = 7; i >= 1; i--)
+            {
+                chartValues.Add(
+                    new ChartValueModel
+                    {
+                        Date = DateTime.Now.AddDays(-i),
+                        Value = random.Next(9500)
+                    }
+                );
+            }
+
+            return chartValues;
         }
 
         private ICollection<TransactionModel> GetTransactions(string language)
@@ -49,14 +84,14 @@ namespace NFTWallet.Services
                     {
                         Amount = amount,
                         CryptoAmount = language == Constants.CULTURE_ENGLISH ? GetCryptoValueEnglish(amount) : GetCryptoValuePortuguese(amount),
-                        Data = DateTime.Now.AddDays(-random.Next(DateTime.Now.DayOfYear)).AddMinutes(random.Next(10000)),
+                        Date = DateTime.Now.Date.AddDays(-random.Next(7)).AddMinutes(random.Next(1440)),
                         IsDeposit = isDeposit,
                         Title = language == Constants.CULTURE_ENGLISH ? GetTitleEnglish(isDeposit) : GetTitlePortuguese(isDeposit)
                     }
                 );
             }
 
-            return transactions;
+            return transactions.OrderByDescending(o => o.Date.Date).ToList();
         }
 
         private string GetTitlePortuguese(bool isDeposit)

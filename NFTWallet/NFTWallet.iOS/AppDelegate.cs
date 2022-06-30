@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Syncfusion.SfChart.XForms.iOS.Renderers;
 using UIKit;
 
 namespace NFTWallet.iOS
@@ -23,6 +24,7 @@ namespace NFTWallet.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfChartRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

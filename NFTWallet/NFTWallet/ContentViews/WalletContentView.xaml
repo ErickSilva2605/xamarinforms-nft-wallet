@@ -3,6 +3,7 @@
     x:Class="NFTWallet.ContentViews.WalletContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:system="clr-namespace:System;assembly=netstandard"
@@ -11,7 +12,7 @@
     <ContentView.Content>
         <Grid
             Padding="0,48,0,0"
-            RowDefinitions="Auto,Auto,Auto,Auto,*"
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
             RowSpacing="24"
             >
             <Label
@@ -57,7 +58,6 @@
                 JustifyContent="SpaceBetween"
                 VerticalOptions="Start"
                 >
-
                 <pancake:PancakeView
                     Padding="10"
                     xct:TouchEffect.NativeAnimation="True"
@@ -134,15 +134,134 @@
                     </StackLayout>
                 </pancake:PancakeView>
             </FlexLayout>
-            <Label
+            <chart:SfChart
                 Grid.Row="3"
+                Margin="12,0,12,8"
+                BackgroundColor="{StaticResource ColorTransparent}"
+                ChartPadding="10"
+                HeightRequest="160"
+                >
+                <chart:SfChart.PrimaryAxis>
+                    <chart:DateTimeAxis
+                        IntervalType="Days"
+                        LabelRotationAngle="-45"
+                        Maximum="{Binding WalletViewModel.Wallet.ChartData.DateMax}"
+                        Minimum="{Binding WalletViewModel.Wallet.ChartData.DateMin}"
+                        ShowMajorGridLines="False"
+                        ShowMinorGridLines="False"
+                        ShowTrackballInfo="False"
+                        >
+                        <chart:DateTimeAxis.AxisLineStyle>
+                            <chart:ChartLineStyle StrokeWidth="0" />
+                        </chart:DateTimeAxis.AxisLineStyle>
+                        <chart:DateTimeAxis.MajorTickStyle>
+                            <chart:ChartAxisTickStyle StrokeWidth="0" />
+                        </chart:DateTimeAxis.MajorTickStyle>
+                        <chart:DateTimeAxis.MinorTickStyle>
+                            <chart:ChartAxisTickStyle StrokeWidth="0" />
+                        </chart:DateTimeAxis.MinorTickStyle>
+                        <chart:DateTimeAxis.LabelStyle>
+                            <chart:ChartAxisLabelStyle
+                                FontFamily="FontRegular"
+                                FontSize="14"
+                                LabelFormat="ddd"
+                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                            Light={StaticResource ColorPrimary900}}"
+                                />
+                        </chart:DateTimeAxis.LabelStyle>
+                    </chart:DateTimeAxis>
+                </chart:SfChart.PrimaryAxis>
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis
+                        Interval="{Binding WalletViewModel.Wallet.ChartData.Interval}"
+                        LabelCreated="NumericalAxis_LabelCreated"
+                        Maximum="{Binding WalletViewModel.Wallet.ChartData.ValueMax}"
+                        Minimum="{Binding WalletViewModel.Wallet.ChartData.ValueMin}"
+                        ShowMajorGridLines="False"
+                        ShowMinorGridLines="False"
+                        ShowTrackballInfo="False"
+                        >
+                        <chart:NumericalAxis.AxisLineStyle>
+                            <chart:ChartLineStyle StrokeWidth="0" />
+                        </chart:NumericalAxis.AxisLineStyle>
+                        <chart:NumericalAxis.MajorTickStyle>
+                            <chart:ChartAxisTickStyle StrokeWidth="0" />
+                        </chart:NumericalAxis.MajorTickStyle>
+                        <chart:NumericalAxis.MinorTickStyle>
+                            <chart:ChartAxisTickStyle StrokeWidth="0" />
+                        </chart:NumericalAxis.MinorTickStyle>
+                        <chart:NumericalAxis.LabelStyle>
+                            <chart:ChartAxisLabelStyle
+                                FontFamily="FontRegular"
+                                FontSize="14"
+                                LabelAlignment="End"
+                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
+                                                            Light={StaticResource ColorPrimary900}}"
+                                />
+                        </chart:NumericalAxis.LabelStyle>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <chart:SplineAreaSeries
+                    ItemsSource="{Binding WalletViewModel.Wallet.ChartData.Values}"
+                    StrokeColor="{StaticResource ColorTertiaryGreen}"
+                    StrokeWidth="1"
+                    XBindingPath="Date"
+                    YBindingPath="Value"
+                    >
+                    <chart:SplineAreaSeries.ColorModel>
+                        <chart:ChartColorModel Palette="Custom">
+                            <chart:ChartColorModel.CustomGradientColors>
+                                <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5,0">
+                                    <chart:ChartGradientColor.GradientStops>
+                                        <chart:ChartGradientStop Offset="0" Color="#00EDE68A" />
+                                        <chart:ChartGradientStop Offset="1" Color="#80EDE68A" />
+                                    </chart:ChartGradientColor.GradientStops>
+                                </chart:ChartGradientColor>
+                            </chart:ChartColorModel.CustomGradientColors>
+                        </chart:ChartColorModel>
+                    </chart:SplineAreaSeries.ColorModel>
+                    <chart:SplineAreaSeries.TrackballLabelTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="{StaticResource ColorTransparent}">
+                                <Label
+                                    BackgroundColor="{StaticResource ColorTransparent}"
+                                    FontFamily="FontRegular"
+                                    FontSize="12"
+                                    Text="{Binding Value, StringFormat='{0:C2}'}"
+                                    TextColor="{StaticResource ColorPrimary50}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                            </StackLayout>
+                        </DataTemplate>
+                    </chart:SplineAreaSeries.TrackballLabelTemplate>
+                </chart:SplineAreaSeries>
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartTrackballBehavior
+                        ActivationMode="TouchMove"
+                        ShowLabel="True"
+                        ShowLine="False"
+                        >
+                        <chart:ChartTrackballBehavior.MarkerStyle>
+                            <chart:ChartTrackballMarkerStyle
+                                Width="8"
+                                Height="8"
+                                BorderWidth="0"
+                                ShowMarker="True"
+                                Color="{StaticResource ColorPrimary50}"
+                                />
+                        </chart:ChartTrackballBehavior.MarkerStyle>
+                    </chart:ChartTrackballBehavior>
+                </chart:SfChart.ChartBehaviors>
+            </chart:SfChart>
+            <Label
+                Grid.Row="4"
                 Margin="16,0"
                 HorizontalTextAlignment="Start"
                 Style="{StaticResource LabelTitleSmall}"
                 Text="{helpers:Translate WalletLabelTransactions}"
                 VerticalTextAlignment="Start"
                 />
-            <CollectionView Grid.Row="4" ItemsSource="{Binding WalletViewModel.Wallet.Transactions}">
+            <CollectionView Grid.Row="5" ItemsSource="{Binding WalletViewModel.Wallet.Transactions}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
@@ -189,7 +308,6 @@
                                     </DataTrigger>
                                 </Image.Triggers>
                             </Image>
-
                             <StackLayout
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -204,11 +322,10 @@
                                     />
                                 <Label
                                     Style="{StaticResource LabelBodySmall}"
-                                    Text="{Binding Data, StringFormat='{0:dd/MM/yyyy - HH:mm}'}"
+                                    Text="{Binding Date, StringFormat='{0:dd/MM/yyyy - HH:mm}'}"
                                     VerticalTextAlignment="Center"
                                     />
                             </StackLayout>
-
                             <StackLayout
                                 Grid.Column="2"
                                 HorizontalOptions="End"
@@ -247,7 +364,6 @@
                                     VerticalTextAlignment="Center"
                                     />
                             </StackLayout>
-
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -2,6 +2,7 @@
 {
     public class Constants
     {
+        internal const string SYNCFUSION_LICENSE_KEY = "NjY0MjU0QDMyMzAyZTMxMmUzMElrZzhieXhIZkZOT3doS3NYeWJUVlJxZFN6ZGZ3eGtMYndVTHVwWmo4Uk09";
         internal const string PREFERENCES_KEY_CULTURE_SELECTED = "cultureSelected";
         internal const string PREFERENCES_KEY_THEME_SELECTED = "themeSelected";
         internal const string PREFERENCES_KEY_AUTHENTICATED = "authenticated";
