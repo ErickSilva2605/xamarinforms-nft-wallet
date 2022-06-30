@@ -6,6 +6,6 @@ namespace NFTWallet.Interfaces
 {
     public interface ISaleService
     {
-        Task<ICollection<ForSaleModel>> GetSalesAsync();
+        Task<ICollection<NftModel>> GetSalesAsync();
     }
 }

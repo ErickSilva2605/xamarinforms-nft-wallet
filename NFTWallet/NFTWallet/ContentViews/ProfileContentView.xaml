@@ -3,10 +3,254 @@
     x:Class="NFTWallet.ContentViews.ProfileContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:magic="http://magic.com/schemas/gradients"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     >
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Hello Xamarin.Forms!" />
-        </StackLayout>
+        <Grid RowDefinitions="Auto,Auto,*" RowSpacing="32">
+            <Grid RowDefinitions="Auto">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="200"
+                    HorizontalOptions="Fill"
+                    Source="{Binding ProfileViewModel.Profile.User.Cover}"
+                    VerticalOptions="Start"
+                    />
+                <magic:GradientView
+                    HeightRequest="200"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Start"
+                    >
+                    <magic:GradientView.GradientSource>
+                        <magic:LinearGradient Angle="0">
+                            <magic:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorGradientSecondaryDark}, Light={StaticResource ColorGradientSecondaryLight}}" />
+                            <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorPrimary900}, Light={StaticResource ColorPrimary50}}" />
+                        </magic:LinearGradient>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+                <pancake:PancakeView
+                    Margin="0,44,16,0"
+                    Padding="0"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    WidthRequest="30"
+                    >
+                    <Image
+                        HeightRequest="24"
+                        HorizontalOptions="Center"
+                        Source="icon_settings"
+                        VerticalOptions="Center"
+                        />
+                </pancake:PancakeView>
+                <Grid
+                    Margin="0,150,0,0"
+                    RowDefinitions="Auto,Auto,Auto"
+                    RowSpacing="16"
+                    >
+                    <Grid
+                        Padding="1"
+                        HeightRequest="85"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        WidthRequest="85"
+                        >
+                        <pancake:PancakeView
+                            Padding="0"
+                            Border="{pancake:BorderMarkup Thickness=2,
+                                                          Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
+                                                                                 Light={StaticResource ColorPrimary300}}}"
+                            CornerRadius="40"
+                            HeightRequest="80"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="80"
+                            >
+                            <Image
+                                HeightRequest="80"
+                                HorizontalOptions="Center"
+                                Source="{Binding ProfileViewModel.Profile.User.Image}"
+                                VerticalOptions="Center"
+                                WidthRequest="80"
+                                />
+                        </pancake:PancakeView>
+                        <Image
+                            HeightRequest="24"
+                            HorizontalOptions="End"
+                            Source="icon_verified"
+                            VerticalOptions="End"
+                            />
+                    </Grid>
+                    <Label
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding ProfileViewModel.Profile.User.Name}" />
+                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                <Span Style="{StaticResource LabelBodySmall}" Text="{Binding ProfileViewModel.Profile.User.UserName}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid
+                        Grid.Row="2"
+                        ColumnDefinitions="Auto,1,Auto,1,Auto"
+                        ColumnSpacing="22"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        >
+                        <Label
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding ProfileViewModel.Profile.Likes}" />
+                                    <Span Text="{x:Static system:Environment.NewLine}" />
+                                    <Span
+                                        Style="{StaticResource LabelCaptionSmall}"
+                                        Text="{helpers:Translate ProfileLabelLikes}"
+                                        TextColor="{StaticResource ColorPrimary200}"
+                                        />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView
+                            Grid.Column="1"
+                            BackgroundColor="{StaticResource ColorPrimary700}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            />
+                        <Label
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding ProfileViewModel.Profile.Followers}" />
+                                    <Span Text="{x:Static system:Environment.NewLine}" />
+                                    <Span
+                                        Style="{StaticResource LabelCaptionSmall}"
+                                        Text="{helpers:Translate ProfileLabelFollowers}"
+                                        TextColor="{StaticResource ColorPrimary200}"
+                                        />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView
+                            Grid.Column="3"
+                            BackgroundColor="{StaticResource ColorPrimary700}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            />
+                        <Label
+                            Grid.Column="4"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding ProfileViewModel.Profile.Following}" />
+                                    <Span Text="{x:Static system:Environment.NewLine}" />
+                                    <Span
+                                        Style="{StaticResource LabelCaptionSmall}"
+                                        Text="{helpers:Translate ProfileLabelFollowing}"
+                                        TextColor="{StaticResource ColorPrimary200}"
+                                        />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                ColumnDefinitions="Auto,1,Auto"
+                ColumnSpacing="22"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                >
+                <pancake:PancakeView
+                    Padding="0"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="40"
+                    >
+                    <Image
+                        xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                        HeightRequest="32"
+                        HorizontalOptions="Center"
+                        Source="icon_grid"
+                        VerticalOptions="Center"
+                        />
+                </pancake:PancakeView>
+                <BoxView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource ColorPrimary700}"
+                    HeightRequest="16"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    />
+                <pancake:PancakeView
+                    Grid.Column="2"
+                    Padding="0"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="40"
+                    >
+                    <Image
+                        HeightRequest="32"
+                        HorizontalOptions="Center"
+                        Source="icon_single"
+                        VerticalOptions="Center"
+                        />
+                </pancake:PancakeView>
+            </Grid>
+            <CollectionView
+                Grid.Row="2"
+                Margin="16,0"
+                ItemsSource="{Binding ProfileViewModel.Profile.UserNfts}"
+                >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        HorizontalItemSpacing="16"
+                        Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="16"
+                        />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <pancake:PancakeView
+                            Padding="0"
+                            BackgroundColor="Red"
+                            CornerRadius="8"
+                            HeightRequest="200"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start"
+                            >
+                            <Image Aspect="AspectFill" Source="{Binding Image}" />
+                        </pancake:PancakeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentView.Content>
 </ContentView>

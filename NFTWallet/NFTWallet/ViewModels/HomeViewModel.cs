@@ -18,7 +18,7 @@ namespace NFTWallet.ViewModels
         private readonly ISaleService _saleService;
 
         private ObservableRangeCollection<FilterModel> _filter;
-        private ObservableRangeCollection<ForSaleModel> _forSale;
+        private ObservableRangeCollection<NftModel> _forSale;
 
         public Task Initialization { get; }
 
@@ -28,7 +28,7 @@ namespace NFTWallet.ViewModels
             set => SetProperty(ref _filter, value);
         }
 
-        public ObservableRangeCollection<ForSaleModel> ForSale
+        public ObservableRangeCollection<NftModel> ForSale
         {
             get => _forSale;
             set => SetProperty(ref _forSale, value);
@@ -42,7 +42,7 @@ namespace NFTWallet.ViewModels
             _filterService = filterService;
             _saleService = saleService;
             Filters = new ObservableRangeCollection<FilterModel>();
-            ForSale = new ObservableRangeCollection<ForSaleModel>();
+            ForSale = new ObservableRangeCollection<NftModel>();
             FilterCommand = new Command<FilterModel>((filterSelected) => ExecuteFilterCommand(filterSelected));
 
             Initialization = InitializeAsync();
@@ -90,7 +90,7 @@ namespace NFTWallet.ViewModels
                 var sales = await _saleService.GetSalesAsync();
 
                 if (sales.Any())
-                    ForSale = new ObservableRangeCollection<ForSaleModel>(sales);
+                    ForSale = new ObservableRangeCollection<NftModel>(sales);
             }
             catch (Exception ex)
             {

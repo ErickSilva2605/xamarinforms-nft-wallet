@@ -7,16 +7,37 @@ using System.Threading.Tasks;
 
 namespace NFTWallet.Services
 {
-    public class SaleService : ISaleService
+    public class ProfileService : IProfileService
     {
-        public async Task<ICollection<NftModel>> GetSalesAsync()
+        public async Task<ICollection<NftModel>> GetOwnershipNftsAsync()
         {
             return await Task.Run(() =>
-                GetSales()
+                GetOwnershipNfts()
             );
         }
 
-        private ICollection<NftModel> GetSales()
+        public async Task<ProfileModel> GetProfileAsync()
+        {
+            return await Task.Run(() =>
+                GetProfile()
+            );
+        }
+
+        private ProfileModel GetProfile()
+        {
+            Random random = new Random();
+
+            return new ProfileModel 
+            {
+                Followers = random.Next(10000),
+                Following = random.Next(10000),
+                Likes = random.Next(10000),
+                UserNfts = GetOwnershipNfts(),
+                User = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown", Cover = "profile_front_cover" }
+            };
+        }
+
+        private ICollection<NftModel> GetOwnershipNfts()
         {
             Random random = new Random();
             var sales = new List<NftModel>();
