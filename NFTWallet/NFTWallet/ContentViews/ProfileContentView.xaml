@@ -8,6 +8,7 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="profilePage"
     >
     <ContentView.Content>
         <Grid RowDefinitions="Auto,Auto,*" RowSpacing="32">
@@ -240,7 +241,8 @@
                     <DataTemplate>
                         <pancake:PancakeView
                             Padding="0"
-                            BackgroundColor="Red"
+                            xct:TouchEffect.Command="{Binding Source={x:Reference profilePage}, Path=BindingContext.ProfileViewModel.NavigateToDetailCommand}"
+                            xct:TouchEffect.CommandParameter="{Binding .}"
                             CornerRadius="8"
                             HeightRequest="200"
                             HorizontalOptions="Center"

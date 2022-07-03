@@ -5,6 +5,6 @@ namespace NFTWallet.Interfaces
 {
     public interface IProfileService
     {
-        Task<ProfileModel> GetProfileAsync();
+        Task<ProfileModel> GetProfileAsync(string language);
     }
 }

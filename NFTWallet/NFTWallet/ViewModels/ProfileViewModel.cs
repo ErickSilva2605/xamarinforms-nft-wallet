@@ -1,8 +1,11 @@
-﻿using NFTWallet.Interfaces;
+﻿using NFTWallet.Helpers;
+using NFTWallet.Interfaces;
 using NFTWallet.Models;
+using NFTWallet.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace NFTWallet.ViewModels
@@ -20,11 +23,14 @@ namespace NFTWallet.ViewModels
             set => SetProperty(ref _profile, value);
         }
 
+        public ICommand NavigateToDetailCommand { get; }
+
         public ProfileViewModel(INavigation navigation, IProfileService profileService)
             : base(navigation)
         {
             _profileService = profileService;
             Profile = new ProfileModel();
+            NavigateToDetailCommand = new Command<NftModel>(async (nftSelected) => await ExecuteNavigateToDetailCommand(nftSelected));
 
             Initialization = InitializeAsync();
         }
@@ -43,10 +49,31 @@ namespace NFTWallet.ViewModels
             {
                 IsBusy = true;
 
-                var profile = await _profileService.GetProfileAsync();
+                var profile = await _profileService.GetProfileAsync(TranslateManagerHelper.Instance.GetCurrentCulture());
 
                 if (profile != null)
                     Profile = profile;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task ExecuteNavigateToDetailCommand(NftModel nftSelected)
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                await Navigation.PushAsync(new DetailPage(nftSelected));
             }
             catch (Exception ex)
             {

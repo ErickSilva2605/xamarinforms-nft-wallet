@@ -52,7 +52,6 @@
                                 VerticalOptions="Center"
                                 />
                         </pancake:PancakeView>
-
                         <Label
                             Grid.Column="1"
                             HorizontalOptions="Center"
@@ -60,7 +59,6 @@
                             Text="12.3 ETH"
                             VerticalOptions="Center"
                             />
-
                         <pancake:PancakeView
                             Grid.Column="2"
                             Padding="0"
@@ -74,7 +72,6 @@
                         </pancake:PancakeView>
                     </Grid>
                 </pancake:PancakeView>
-
                 <Image
                     HeightRequest="24"
                     HorizontalOptions="End"
@@ -82,7 +79,6 @@
                     VerticalOptions="Center"
                     />
             </FlexLayout>
-
             <controls:CustomEntry
                 Grid.Row="1"
                 Margin="16,0"
@@ -101,7 +97,6 @@
                 TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
                                             Light={StaticResource ColorPrimary900}}"
                 />
-
             <CollectionView
                 Grid.Row="2"
                 Margin="16,8,0,0"
@@ -176,7 +171,11 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="16,0">
-                            <pancake:PancakeView CornerRadius="8">
+                            <pancake:PancakeView
+                                xct:TouchEffect.Command="{Binding Source={x:Reference homePage}, Path=BindingContext.HomeViewModel.NavigateToDetailCommand}"
+                                xct:TouchEffect.CommandParameter="{Binding .}"
+                                CornerRadius="8"
+                                >
                                 <Grid>
                                     <Image
                                         Aspect="AspectFill"
@@ -222,16 +221,12 @@
                                                         WidthRequest="45"
                                                         />
                                                 </pancake:PancakeView>
-                                                <Label
-                                                    Grid.Column="1"
-                                                    Style="{StaticResource LabelBodySmall}"
-                                                    VerticalTextAlignment="Center"
-                                                    >
+                                                <Label Grid.Column="1" VerticalTextAlignment="Center">
                                                     <Label.FormattedText>
                                                         <FormattedString>
-                                                            <Span Text="{helpers:Translate HomeLabelOwnedBy}" />
+                                                            <Span Style="{StaticResource LabelBodySmall}" Text="{helpers:Translate HomeLabelOwnedBy}" />
                                                             <Span Text="{x:Static system:Environment.NewLine}" />
-                                                            <Span Text="{Binding Name}" />
+                                                            <Span Style="{StaticResource LabelBodyLarge}" Text="{Binding Name}" />
                                                         </FormattedString>
                                                     </Label.FormattedText>
                                                 </Label>

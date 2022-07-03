@@ -1,6 +1,7 @@
 ﻿using NFTWallet.Helpers;
 using NFTWallet.Interfaces;
 using NFTWallet.Models;
+using NFTWallet.Views;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace NFTWallet.ViewModels
         }
 
         public ICommand FilterCommand { get; }
+        public ICommand NavigateToDetailCommand { get; }
 
         public HomeViewModel(INavigation navigation, IFilterService filterService, ISaleService saleService) :
             base(navigation)
@@ -44,6 +46,7 @@ namespace NFTWallet.ViewModels
             Filters = new ObservableRangeCollection<FilterModel>();
             ForSale = new ObservableRangeCollection<NftModel>();
             FilterCommand = new Command<FilterModel>((filterSelected) => ExecuteFilterCommand(filterSelected));
+            NavigateToDetailCommand = new Command<NftModel>(async (nftSelected) => await ExecuteNavigateToDetailCommand(nftSelected));
 
             Initialization = InitializeAsync();
         }
@@ -87,7 +90,7 @@ namespace NFTWallet.ViewModels
             {
                 IsBusy = true;
 
-                var sales = await _saleService.GetSalesAsync();
+                var sales = await _saleService.GetSalesAsync(TranslateManagerHelper.Instance.GetCurrentCulture());
 
                 if (sales.Any())
                     ForSale = new ObservableRangeCollection<NftModel>(sales);
@@ -110,6 +113,27 @@ namespace NFTWallet.ViewModels
             Filters.ForEach(filter => filter.Selected = false);
 
             filterSelected.Selected = true;
+        }
+
+        private async Task ExecuteNavigateToDetailCommand(NftModel nftSelected)
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                await Navigation.PushAsync(new DetailPage(nftSelected));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

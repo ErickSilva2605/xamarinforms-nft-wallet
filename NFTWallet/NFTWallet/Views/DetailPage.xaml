@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NFTWallet.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <Image
+                Margin="-10,-20,-10,0"
+                HeightRequest="480"
+                HorizontalOptions="Center"
+                Source="{Binding Nft.Image}"
+                VerticalOptions="Start"
+                />
+            <Grid
+                Margin="0,440,0,0"
+                RowDefinitions="Auto,1,Auto,*"
+                RowSpacing="8"
+                >
+                <StackLayout
+                    Padding="16"
+                    HorizontalOptions="Fill"
+                    Orientation="Horizontal"
+                    VerticalOptions="Start"
+                    >
+                    <Label
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        VerticalTextAlignment="Center"
+                        >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Style="{StaticResource LabelBodyLarge}" Text="{Binding Nft.Name}" />
+                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                <Span
+                                    Style="{StaticResource LabelBodySmall}"
+                                    Text="{Binding Nft.Id, StringFormat='#{0}'}"
+                                    TextColor="{StaticResource ColorPrimary500}"
+                                    />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <pancake:PancakeView
+                        Padding="16,5"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
+                                                          Light={StaticResource ColorPrimary100}}"
+                        CornerRadius="8"
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        >
+                        <Grid
+                            ColumnDefinitions="Auto,Auto"
+                            ColumnSpacing="12"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            >
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_ethereum"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="End"
+                                Style="{StaticResource LabelBodyLarge}"
+                                Text="{Binding Nft.Price, StringFormat='{0:N1} ETH'}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                </StackLayout>
+                <BoxView
+                    Grid.Row="1"
+                    Margin="16,0"
+                    BackgroundColor="{StaticResource ColorPrimary800}"
+                    VerticalOptions="Fill"
+                    />
+                <Label
+                    Grid.Row="2"
+                    Margin="16,16,0,12"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource LabelTitleSmall}"
+                    Text="{helpers:Translate DetailLabelLatestBids}"
+                    VerticalTextAlignment="Start"
+                    />
+                <CollectionView Grid.Row="3" ItemsSource="{Binding Nft.LastBids}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="16" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Padding="16,0"
+                                ColumnDefinitions="Auto,*,Auto"
+                                ColumnSpacing="16"
+                                RowDefinitions="Auto"
+                                RowSpacing="16"
+                                VerticalOptions="Fill"
+                                >
+                                <Grid
+                                    Padding="1"
+                                    HeightRequest="45"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start"
+                                    WidthRequest="45"
+                                    >
+                                    <pancake:PancakeView
+                                        Padding="0"
+                                        Border="{pancake:BorderMarkup Thickness=2,
+                                                                      Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
+                                                                                             Light={StaticResource ColorPrimary300}}}"
+                                        CornerRadius="20"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"
+                                        WidthRequest="40"
+                                        >
+                                        <Image
+                                            HeightRequest="45"
+                                            HorizontalOptions="Center"
+                                            Source="{Binding Image}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="45"
+                                            />
+                                    </pancake:PancakeView>
+                                    <Image
+                                        HeightRequest="20"
+                                        HorizontalOptions="End"
+                                        Source="icon_verified"
+                                        VerticalOptions="End"
+                                        />
+                                </Grid>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{StaticResource LabelBodyNormal}"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center"
+                                    />
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="End"
+                                    VerticalTextAlignment="Center"
+                                    >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Style="{StaticResource LabelBodyNormal}" Text="{Binding CryptoAmount, StringFormat='{0:N2} ETH'}" />
+                                            <Span Text="{x:Static system:Environment.NewLine}" />
+                                            <Span
+                                                Style="{StaticResource LabelBodySmall}"
+                                                Text="{Binding Date, StringFormat='{0:dd/MM/yyyy - HH:mm}'}"
+                                                TextColor="{StaticResource ColorPrimary600}"
+                                                />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            <Grid
+                Padding="20,0"
+                BackgroundColor="{StaticResource ColorPrimary800}"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="20"
+                HeightRequest="90"
+                VerticalOptions="End"
+                >
+                <pancake:PancakeView
+                    Padding="10,0"
+                    xct:TouchEffect.NativeAnimation="True"
+                    BackgroundColor="{StaticResource ColorTransparent}"
+                    Border="{pancake:BorderMarkup Color={StaticResource ColorSecondary900},
+                                                  Thickness=2}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource CardButton}"
+                    VerticalOptions="Center"
+                    WidthRequest="130"
+                    >
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="12"
+                        VerticalOptions="Center"
+                        >
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            Source="icon_minus"
+                            VerticalOptions="Center"
+                            WidthRequest="24"
+                            />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelBodyNormal}"
+                            Text="{Binding Nft.Price, StringFormat='{0:N1} ETH'}"
+                            TextColor="{StaticResource ColorSecondary900}"
+                            VerticalTextAlignment="Center"
+                            />
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            Source="icon_plus"
+                            VerticalOptions="Center"
+                            WidthRequest="24"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+                <pancake:PancakeView
+                    Grid.Column="1"
+                    Padding="10,0"
+                    xct:TouchEffect.NativeAnimation="True"
+                    BackgroundColor="{StaticResource ColorSecondary900}"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource CardButton}"
+                    VerticalOptions="Center"
+                    WidthRequest="130"
+                    >
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="16"
+                        VerticalOptions="Center"
+                        >
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelBodyNormal}"
+                            Text="{helpers:Translate DetailButtonBid}"
+                            TextColor="{StaticResource ColorPrimary900}"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
