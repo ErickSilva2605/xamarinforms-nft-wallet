@@ -250,6 +250,105 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Dark Theme.
+        /// </summary>
+        internal static string SettingsLabelDark {
+            get {
+                return ResourceManager.GetString("SettingsLabelDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Favorites.
+        /// </summary>
+        internal static string SettingsLabelFavorites {
+            get {
+                return ResourceManager.GetString("SettingsLabelFavorites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Help &amp; Support.
+        /// </summary>
+        internal static string SettingsLabelHelp {
+            get {
+                return ResourceManager.GetString("SettingsLabelHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Language.
+        /// </summary>
+        internal static string SettingsLabelLanguage {
+            get {
+                return ResourceManager.GetString("SettingsLabelLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Logout.
+        /// </summary>
+        internal static string SettingsLabelLogout {
+            get {
+                return ResourceManager.GetString("SettingsLabelLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Notification.
+        /// </summary>
+        internal static string SettingsLabelNotification {
+            get {
+                return ResourceManager.GetString("SettingsLabelNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Password.
+        /// </summary>
+        internal static string SettingsLabelPassword {
+            get {
+                return ResourceManager.GetString("SettingsLabelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Privacy Policy.
+        /// </summary>
+        internal static string SettingsLabelPrivacy {
+            get {
+                return ResourceManager.GetString("SettingsLabelPrivacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Settings.
+        /// </summary>
+        internal static string SettingsLabelTitle {
+            get {
+                return ResourceManager.GetString("SettingsLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Transfer NFT.
+        /// </summary>
+        internal static string SettingsLabelTransfer {
+            get {
+                return ResourceManager.GetString("SettingsLabelTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Wallet.
+        /// </summary>
+        internal static string SettingsLabelWallet {
+            get {
+                return ResourceManager.GetString("SettingsLabelWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Most recent.
         /// </summary>
         internal static string TrendsLabelOrder {

@@ -287,4 +287,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\user_two.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_dark_mode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_logout.png" />
+  </ItemGroup>
 </Project>

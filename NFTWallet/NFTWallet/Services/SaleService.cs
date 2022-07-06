@@ -3,6 +3,7 @@ using NFTWallet.Interfaces;
 using NFTWallet.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NFTWallet.Services
@@ -218,7 +219,7 @@ namespace NFTWallet.Services
                 }
             );
 
-            return lastBids;
+            return lastBids.OrderByDescending(o => o.Date).ToList();
         }
     }
 }

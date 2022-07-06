@@ -24,6 +24,7 @@ namespace NFTWallet.ViewModels
         }
 
         public ICommand NavigateToDetailCommand { get; }
+        public ICommand NavigateToSettingsCommand { get; }
 
         public ProfileViewModel(INavigation navigation, IProfileService profileService)
             : base(navigation)
@@ -31,6 +32,7 @@ namespace NFTWallet.ViewModels
             _profileService = profileService;
             Profile = new ProfileModel();
             NavigateToDetailCommand = new Command<NftModel>(async (nftSelected) => await ExecuteNavigateToDetailCommand(nftSelected));
+            NavigateToSettingsCommand = new Command(async () => await ExecuteNavigateToSettingsCommand());
 
             Initialization = InitializeAsync();
         }
@@ -74,6 +76,27 @@ namespace NFTWallet.ViewModels
                 IsBusy = true;
 
                 await Navigation.PushAsync(new DetailPage(nftSelected));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task ExecuteNavigateToSettingsCommand()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                await Navigation.PushAsync(new SettingsPage(Profile.User));
             }
             catch (Exception ex)
             {

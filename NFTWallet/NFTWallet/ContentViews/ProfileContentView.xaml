@@ -35,6 +35,8 @@
                 <pancake:PancakeView
                     Margin="0,44,16,0"
                     Padding="0"
+                    xct:TouchEffect.Command="{Binding Source={x:Reference profilePage}, Path=BindingContext.ProfileViewModel.NavigateToSettingsCommand}"
+                    xct:TouchEffect.NativeAnimation="True"
                     CornerRadius="15"
                     HeightRequest="30"
                     HorizontalOptions="End"

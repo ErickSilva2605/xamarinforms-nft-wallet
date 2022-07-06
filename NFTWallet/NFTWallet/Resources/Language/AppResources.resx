@@ -180,6 +180,39 @@
   <data name="ProfileLabelLikes" xml:space="preserve">
     <value>Likes</value>
   </data>
+  <data name="SettingsLabelDark" xml:space="preserve">
+    <value>Dark Theme</value>
+  </data>
+  <data name="SettingsLabelFavorites" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="SettingsLabelHelp" xml:space="preserve">
+    <value>Help &amp; Support</value>
+  </data>
+  <data name="SettingsLabelLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsLabelLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="SettingsLabelNotification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="SettingsLabelPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SettingsLabelPrivacy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="SettingsLabelTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsLabelTransfer" xml:space="preserve">
+    <value>Transfer NFT</value>
+  </data>
+  <data name="SettingsLabelWallet" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
   <data name="TrendsLabelOrder" xml:space="preserve">
     <value>Most recent</value>
   </data>

@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NFTWallet.Views.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <ContentPage.Content>
+        <Grid
+            Padding="0,44,0,16"
+            RowDefinitions="Auto,Auto,*"
+            RowSpacing="16"
+            >
+            <Grid Padding="16,0">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelTitleSmall}"
+                    Text="{helpers:Translate SettingsLabelTitle}"
+                    VerticalTextAlignment="Start"
+                    />
+                <pancake:PancakeView
+                    Padding="0"
+                    xct:TouchEffect.Command="{Binding NavigateBackCommand}"
+                    xct:TouchEffect.NativeAnimation="True"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="30"
+                    >
+                    <Image
+                        HeightRequest="24"
+                        HorizontalOptions="Center"
+                        Source="icon_arrow_left"
+                        VerticalOptions="Center"
+                        />
+                </pancake:PancakeView>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Margin="0,20,0,0"
+                Padding="16,0"
+                ColumnDefinitions="Auto,*,Auto"
+                ColumnSpacing="16"
+                >
+                <Grid
+                    Padding="1"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="60"
+                    >
+                    <pancake:PancakeView
+                        Padding="0"
+                        Border="{pancake:BorderMarkup Thickness=2,
+                                                      Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
+                                                                             Light={StaticResource ColorPrimary300}}}"
+                        CornerRadius="28"
+                        HeightRequest="56"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="56"
+                        >
+                        <Image
+                            HeightRequest="56"
+                            HorizontalOptions="Center"
+                            Source="{Binding User.Image}"
+                            VerticalOptions="Center"
+                            WidthRequest="56"
+                            />
+                    </pancake:PancakeView>
+                    <Image
+                        HeightRequest="24"
+                        HorizontalOptions="End"
+                        Source="icon_verified"
+                        VerticalOptions="End"
+                        />
+                </Grid>
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Start"
+                    VerticalOptions="Fill"
+                    VerticalTextAlignment="Center"
+                    >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding User.Name}" />
+                            <Span Text="{x:Static system:Environment.NewLine}" />
+                            <Span Style="{StaticResource LabelBodySmall}" Text="{Binding User.UserName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <pancake:PancakeView
+                    Grid.Column="2"
+                    Padding="0"
+                    xct:TouchEffect.NativeAnimation="True"
+                    CornerRadius="15"
+                    HeightRequest="30"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    WidthRequest="30"
+                    >
+                    <Image
+                        HeightRequest="24"
+                        HorizontalOptions="Center"
+                        Source="icon_edit"
+                        VerticalOptions="Center"
+                        />
+                </pancake:PancakeView>
+            </Grid>
+            <ScrollView Grid.Row="2" Margin="0,16,0,0">
+                <StackLayout
+                    Padding="16,0"
+                    Orientation="Vertical"
+                    Spacing="16"
+                    >
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_arrow_left_right"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelTransfer}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_wallet"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelWallet}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_favorite"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelFavorites}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_privacy_policy"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelPrivacy}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_language"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelLanguage}"
+                                VerticalTextAlignment="Center"
+                                />
+                            <Label
+                                Grid.Column="2"
+                                HorizontalTextAlignment="End"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="pt-br"
+                                TextTransform="Uppercase"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_help"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelHelp}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_lock"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelPassword}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_notification"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelNotification}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_dark_mode"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelDark}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView
+                        Padding="8,16"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="{StaticResource ColorPrimary800}"
+                        CornerRadius="8"
+                        >
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                            <Image
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="icon_logout"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Start"
+                                Style="{StaticResource LabelBodyNormal}"
+                                Text="{helpers:Translate SettingsLabelLogout}"
+                                VerticalTextAlignment="Center"
+                                />
+                        </Grid>
+                    </pancake:PancakeView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
