@@ -27,7 +27,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_ONE, Name = "Ragnar", UserName = "@ragnar" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_ONE, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -37,7 +37,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Bjorn", UserName = "@bjorn" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -47,7 +47,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_THREE, Name = "Floki", UserName = "@floki" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_THREE, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -57,7 +57,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_FOUR, Name = "Ubbe", UserName = "@ubbe" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_FOUR, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -67,7 +67,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_FIVE, Name = "Lagertha", UserName = "@lagertha" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_FIVE, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -77,7 +77,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_SIX, Name = "Torvi", UserName = "@torvi" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_SIX, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -87,7 +87,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Ivar", UserName = "@ivar" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 
@@ -97,7 +97,7 @@ namespace NFTWallet.Services
                     IsRising = random.Next() % 2 == 0 ? true : false,
                     Percentage = random.NextDouble(),
                     Value = random.NextDouble() * 1000,
-                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Harald", UserName = "@harald" }
+                    User = new UserModel { Image = Constants.USER_IMAGE_TWO, Name = "Anonymous User", UserName = "@anonymous" }
                 }
             );
 

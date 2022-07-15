@@ -28,7 +28,7 @@
                     <magic:GradientView.GradientSource>
                         <magic:LinearGradient Angle="0">
                             <magic:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorGradientSecondaryDark}, Light={StaticResource ColorGradientSecondaryLight}}" />
-                            <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorPrimary900}, Light={StaticResource ColorPrimary50}}" />
+                            <magic:GradientStop Offset="1" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900}, Light={StaticResource ColorPrimaryLight50}}" />
                         </magic:LinearGradient>
                     </magic:GradientView.GradientSource>
                 </magic:GradientView>
@@ -44,6 +44,8 @@
                     WidthRequest="30"
                     >
                     <Image
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                            Light={StaticResource ColorPrimaryDark50}}"
                         HeightRequest="24"
                         HorizontalOptions="Center"
                         Source="icon_settings"
@@ -64,15 +66,15 @@
                         >
                         <pancake:PancakeView
                             Padding="0"
-                            Border="{pancake:BorderMarkup Thickness=2,
-                                                          Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
-                                                                                 Light={StaticResource ColorPrimary300}}}"
                             CornerRadius="40"
                             HeightRequest="80"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
                             WidthRequest="80"
                             >
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600}, Light={StaticResource ColorPrimaryLight600}}" />
+                            </pancake:PancakeView.Border>
                             <Image
                                 HeightRequest="80"
                                 HorizontalOptions="Center"
@@ -84,7 +86,8 @@
                         <Image
                             HeightRequest="24"
                             HorizontalOptions="End"
-                            Source="icon_verified"
+                            Source="{AppThemeBinding Dark=icon_verified_dark,
+                                                     Light=icon_verified_light}"
                             VerticalOptions="End"
                             />
                     </Grid>
@@ -121,14 +124,16 @@
                                     <Span
                                         Style="{StaticResource LabelCaptionSmall}"
                                         Text="{helpers:Translate ProfileLabelLikes}"
-                                        TextColor="{StaticResource ColorPrimary200}"
+                                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark200},
+                                                                    Light={StaticResource ColorPrimaryLight800}}"
                                         />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <BoxView
                             Grid.Column="1"
-                            BackgroundColor="{StaticResource ColorPrimary700}"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark700},
+                                                              Light={StaticResource ColorPrimaryLight800}}"
                             HeightRequest="32"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
@@ -146,14 +151,16 @@
                                     <Span
                                         Style="{StaticResource LabelCaptionSmall}"
                                         Text="{helpers:Translate ProfileLabelFollowers}"
-                                        TextColor="{StaticResource ColorPrimary200}"
+                                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark200},
+                                                                    Light={StaticResource ColorPrimaryLight800}}"
                                         />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
                         <BoxView
                             Grid.Column="3"
-                            BackgroundColor="{StaticResource ColorPrimary700}"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark700},
+                                                              Light={StaticResource ColorPrimaryLight800}}"
                             HeightRequest="32"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
@@ -171,7 +178,8 @@
                                     <Span
                                         Style="{StaticResource LabelCaptionSmall}"
                                         Text="{helpers:Translate ProfileLabelFollowing}"
-                                        TextColor="{StaticResource ColorPrimary200}"
+                                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark200},
+                                                                    Light={StaticResource ColorPrimaryLight800}}"
                                         />
                                 </FormattedString>
                             </Label.FormattedText>
@@ -195,7 +203,8 @@
                     WidthRequest="40"
                     >
                     <Image
-                        xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                            Light={StaticResource ColorSecondaryLight900}}"
                         HeightRequest="32"
                         HorizontalOptions="Center"
                         Source="icon_grid"
@@ -204,7 +213,8 @@
                 </pancake:PancakeView>
                 <BoxView
                     Grid.Column="1"
-                    BackgroundColor="{StaticResource ColorPrimary700}"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark700},
+                                                      Light={StaticResource ColorPrimaryLight800}}"
                     HeightRequest="16"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
@@ -219,6 +229,8 @@
                     WidthRequest="40"
                     >
                     <Image
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600},
+                                                                            Light={StaticResource ColorPrimaryLight800}}"
                         HeightRequest="32"
                         HorizontalOptions="Center"
                         Source="icon_single"

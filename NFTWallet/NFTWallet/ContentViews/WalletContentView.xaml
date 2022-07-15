@@ -19,23 +19,29 @@
                 HorizontalTextAlignment="Center"
                 Style="{StaticResource LabelTitleSmall}"
                 Text="{helpers:Translate WalletLabelTitle}"
+                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                            Light={StaticResource ColorPrimaryLight900}}"
                 VerticalTextAlignment="Start"
                 />
             <pancake:PancakeView
                 Grid.Row="1"
                 Margin="16,8"
                 Padding="16"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                  Light={StaticResource ColorPrimary100}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                                  Light={StaticResource ColorPrimaryLight50}}"
                 CornerRadius="8"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Start"
                 >
+                <pancake:PancakeView.Border>
+                    <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                </pancake:PancakeView.Border>
                 <StackLayout Orientation="Vertical" Spacing="8">
                     <Image
                         HeightRequest="40"
                         HorizontalOptions="Center"
-                        Source="icon_ethereum"
+                        Source="{AppThemeBinding Dark=icon_ethereum_dark,
+                                                 Light=icon_ethereum_light}"
                         VerticalOptions="Start"
                         />
                     <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
@@ -68,7 +74,8 @@
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image
-                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                                Light={StaticResource ColorSecondaryLight900}}"
                             HeightRequest="24"
                             HorizontalOptions="Center"
                             Source="icon_arrow_up_to_line"
@@ -93,7 +100,8 @@
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image
-                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                                Light={StaticResource ColorSecondaryLight900}}"
                             HeightRequest="24"
                             HorizontalOptions="Center"
                             Source="icon_arrow_down_to_line"
@@ -118,7 +126,8 @@
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image
-                            xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                                Light={StaticResource ColorSecondaryLight900}}"
                             HeightRequest="24"
                             HorizontalOptions="Center"
                             Source="icon_send"
@@ -165,8 +174,8 @@
                                 FontFamily="FontRegular"
                                 FontSize="14"
                                 LabelFormat="ddd"
-                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                            Light={StaticResource ColorPrimary900}}"
+                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                            Light={StaticResource ColorPrimaryLight900}}"
                                 />
                         </chart:DateTimeAxis.LabelStyle>
                     </chart:DateTimeAxis>
@@ -195,15 +204,16 @@
                                 FontFamily="FontRegular"
                                 FontSize="14"
                                 LabelAlignment="End"
-                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                            Light={StaticResource ColorPrimary900}}"
+                                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                            Light={StaticResource ColorPrimaryLight900}}"
                                 />
                         </chart:NumericalAxis.LabelStyle>
                     </chart:NumericalAxis>
                 </chart:SfChart.SecondaryAxis>
                 <chart:SplineAreaSeries
                     ItemsSource="{Binding WalletViewModel.Wallet.ChartData.Values}"
-                    StrokeColor="{StaticResource ColorTertiaryGreen}"
+                    StrokeColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                  Light={StaticResource ColorSecondaryLight900}}"
                     StrokeWidth="1"
                     XBindingPath="Date"
                     YBindingPath="Value"
@@ -213,8 +223,8 @@
                             <chart:ChartColorModel.CustomGradientColors>
                                 <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5,0">
                                     <chart:ChartGradientColor.GradientStops>
-                                        <chart:ChartGradientStop Offset="0" Color="#00EDE68A" />
-                                        <chart:ChartGradientStop Offset="1" Color="#80EDE68A" />
+                                        <chart:ChartGradientStop Offset="0" Color="{AppThemeBinding Dark=#00EDE68A, Light=#0014BDEB}" />
+                                        <chart:ChartGradientStop Offset="1" Color="{AppThemeBinding Dark=#80EDE68A, Light=#8014BDEB}" />
                                     </chart:ChartGradientColor.GradientStops>
                                 </chart:ChartGradientColor>
                             </chart:ChartColorModel.CustomGradientColors>
@@ -228,7 +238,8 @@
                                     FontFamily="FontRegular"
                                     FontSize="12"
                                     Text="{Binding Value, StringFormat='{0:C2}'}"
-                                    TextColor="{StaticResource ColorPrimary50}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                Light={StaticResource ColorPrimaryLight900}}"
                                     VerticalTextAlignment="Center"
                                     />
                             </StackLayout>
@@ -247,7 +258,8 @@
                                 Height="8"
                                 BorderWidth="0"
                                 ShowMarker="True"
-                                Color="{StaticResource ColorPrimary50}"
+                                Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                        Light={StaticResource ColorPrimaryLight900}}"
                                 />
                         </chart:ChartTrackballBehavior.MarkerStyle>
                     </chart:ChartTrackballBehavior>
@@ -259,6 +271,8 @@
                 HorizontalTextAlignment="Start"
                 Style="{StaticResource LabelTitleSmall}"
                 Text="{helpers:Translate WalletLabelTransactions}"
+                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                            Light={StaticResource ColorPrimaryLight900}}"
                 VerticalTextAlignment="Start"
                 />
             <CollectionView Grid.Row="5" ItemsSource="{Binding WalletViewModel.Wallet.Transactions}">
@@ -273,7 +287,8 @@
                             ColumnSpacing="16"
                             >
                             <Image
-                                xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryGreen}"
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkGreen},
+                                                                                    Light={StaticResource ColorTertiaryLightGreen}}"
                                 HeightRequest="24"
                                 HorizontalOptions="Start"
                                 IsVisible="False"
@@ -291,7 +306,8 @@
                                 </Image.Triggers>
                             </Image>
                             <Image
-                                xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryRed}"
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkRed},
+                                                                                    Light={StaticResource ColorTertiaryLightRed}}"
                                 HeightRequest="24"
                                 HorizontalOptions="Start"
                                 IsVisible="False"
@@ -318,6 +334,8 @@
                                 <Label
                                     Style="{StaticResource LabelSubtitleNormal}"
                                     Text="{Binding Title}"
+                                    TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                Light={StaticResource ColorPrimaryLight900}}"
                                     VerticalTextAlignment="Center"
                                     />
                                 <Label
@@ -345,7 +363,7 @@
                                             Value="True"
                                             >
                                             <Setter Property="Text" Value="{Binding CryptoAmount, StringFormat='+ {0:N4} ETH'}" />
-                                            <Setter Property="TextColor" Value="{StaticResource ColorTertiaryGreen}" />
+                                            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkGreen}, Light={StaticResource ColorTertiaryLightGreen}}" />
                                         </DataTrigger>
                                         <DataTrigger
                                             Binding="{Binding IsDeposit}"
@@ -353,7 +371,7 @@
                                             Value="False"
                                             >
                                             <Setter Property="Text" Value="{Binding CryptoAmount, StringFormat='- {0:N3} ETH'}" />
-                                            <Setter Property="TextColor" Value="{StaticResource ColorTertiaryRed}" />
+                                            <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkRed}, Light={StaticResource ColorTertiaryLightRed}}" />
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>

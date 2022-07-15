@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="NFTWallet.Resources.Styles.EntryStyles"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NFTWallet.Controls"
+    >
+
+    <Style x:Key="EntryCustom" TargetType="{x:Type controls:CustomEntry}">
+        <Setter Property="AccentColor" Value="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+        <Setter Property="CardBackgroundColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight100}}" />
+        <Setter Property="CardBorderColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark700}, Light={StaticResource ColorPrimaryLight400}}" />
+        <Setter Property="LeadingIconColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50}, Light={StaticResource ColorPrimaryLight800}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50}, Light={StaticResource ColorPrimaryLight800}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50}, Light={StaticResource ColorPrimaryLight800}}" />
+    </Style>
+
+</ResourceDictionary>

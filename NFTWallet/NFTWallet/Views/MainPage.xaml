@@ -13,8 +13,8 @@
             <ControlTemplate x:Key="TabItemTemplate">
                 <Grid HorizontalOptions="Center" VerticalOptions="Center">
                     <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                                            Light={StaticResource ColorPrimary900}}"
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                            Light={StaticResource ColorPrimaryLight800}}"
                         HeightRequest="32"
                         HorizontalOptions="Center"
                         IsVisible="True"
@@ -33,7 +33,8 @@
                     </Image>
 
                     <Image
-                        xct:IconTintColorEffect.TintColor="{StaticResource ColorSecondary900}"
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                            Light={StaticResource ColorSecondaryLight900}}"
                         HeightRequest="32"
                         IsVisible="False"
                         Source="{TemplateBinding Icon}"

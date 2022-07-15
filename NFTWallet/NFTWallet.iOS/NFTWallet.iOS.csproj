@@ -186,9 +186,6 @@
     <BundleResource Include="Resources\icon_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_ethereum.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\icon_favorite.png" />
   </ItemGroup>
   <ItemGroup>
@@ -240,13 +237,7 @@
     <BundleResource Include="Resources\icon_user.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_verified.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\icon_wallet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\logo_ethereum.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\nft_five.png" />
@@ -292,5 +283,23 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_ethereum_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_ethereum_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_verified_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_verified_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_ethereum_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_ethereum_light.png" />
   </ItemGroup>
 </Project>

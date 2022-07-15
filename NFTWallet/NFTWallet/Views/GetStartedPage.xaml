@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     xmlns:magic="http://magic.com/schemas/gradients"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False"
     >
     <ContentPage.Content>
@@ -37,13 +39,31 @@
                     Style="{StaticResource LabelBodyNormal}"
                     Text="{helpers:Translate GetStartedLabelSubtitle}"
                     />
-                <Button
+                <pancake:PancakeView
                     Grid.Row="2"
                     Margin="0,16,0,0"
-                    Command="{Binding NavigateToLoginCommand}"
-                    Style="{StaticResource ButtonSmallBackgound}"
-                    Text="{helpers:Translate GetStartedButton}"
-                    />
+                    Padding="16,0"
+                    xct:TouchEffect.Command="{Binding NavigateToLoginCommand}"
+                    xct:TouchEffect.NativeAnimation="True"
+                    BackgroundGradientEndPoint="1,0"
+                    BackgroundGradientStartPoint="0,0"
+                    Style="{StaticResource CardButton}"
+                    >
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark600}, Light={StaticResource ColorSecondaryLight500}}" />
+                            <pancake:GradientStop Offset="0.5" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelSubtitleNormal}"
+                        Text="{helpers:Translate GetStartedButton}"
+                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900},
+                                                    Light={StaticResource ColorPrimaryLight300}}"
+                        VerticalTextAlignment="Center"
+                        />
+                </pancake:PancakeView>
             </Grid>
         </Grid>
     </ContentPage.Content>

@@ -27,7 +27,7 @@ namespace NFTWallet.Services
                 Following = random.Next(10000),
                 Likes = random.Next(10000),
                 UserNfts = GetOwnershipNfts(language),
-                User = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown", Cover = "profile_front_cover" }
+                User = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous", Cover = "profile_front_cover" }
             };
         }
 
@@ -45,7 +45,7 @@ namespace NFTWallet.Services
                     Image = "nft_one",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -58,7 +58,7 @@ namespace NFTWallet.Services
                     Image = "nft_two",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -71,7 +71,7 @@ namespace NFTWallet.Services
                     Image = "nft_three",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -84,7 +84,7 @@ namespace NFTWallet.Services
                     Image = "nft_four",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -97,7 +97,7 @@ namespace NFTWallet.Services
                     Image = "nft_five",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -110,7 +110,7 @@ namespace NFTWallet.Services
                     Image = "nft_six",
                     Name = "The Unkown",
                     Price = random.NextDouble() * 10,
-                    Owner = new UserModel { Name = "Unkown", Image = Constants.USER_IMAGE_SIX, UserName = "@unkown" },
+                    Owner = new UserModel { Name = "Anonymous User", Image = Constants.USER_IMAGE_SIX, UserName = "@anonymous" },
                     LastBids = GetLastBids()
                 }
             );
@@ -136,7 +136,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_ONE,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -146,7 +146,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_FOUR,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -156,7 +156,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_THREE,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -166,7 +166,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_ONE,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -176,7 +176,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_SIX,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -186,7 +186,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_FIVE,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -196,7 +196,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_TWO,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -206,7 +206,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_SIX,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -216,7 +216,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_THREE,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))
@@ -226,7 +226,7 @@ namespace NFTWallet.Services
             lastBids.Add(
                 new BidModel
                 {
-                    Name = "Unkown",
+                    Name = "Anonymous User",
                     Image = Constants.USER_IMAGE_FOUR,
                     CryptoAmount = (random.NextDouble() * 1000) / 1200,
                     Date = DateTime.Now.AddDays(-random.Next(10)).AddMinutes(random.Next(1440))

@@ -18,7 +18,8 @@
             <Image
                 HeightRequest="110"
                 HorizontalOptions="Center"
-                Source="logo_ethereum"
+                Source="{AppThemeBinding Dark=logo_ethereum_dark,
+                                         Light=logo_ethereum_light}"
                 VerticalOptions="Start"
                 />
             <Label
@@ -28,7 +29,6 @@
                 Text="{helpers:Translate LoginLabelTitle}"
                 VerticalTextAlignment="Start"
                 />
-
             <Label
                 Margin="8,0"
                 HorizontalTextAlignment="Center"
@@ -36,46 +36,23 @@
                 Text="{helpers:Translate LoginLabelSubtitle}"
                 VerticalTextAlignment="Start"
                 />
-
             <controls:CustomEntry
                 Margin="0,32,0,0"
-                AccentColor="{StaticResource ColorSecondary900}"
-                CardBackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                      Light={StaticResource ColorPrimary100}}"
-                CardBorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary700},
-                                                  Light={StaticResource ColorPrimary200}}"
                 LeadingIcon="icon_email"
-                LeadingIconColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
                 Placeholder="{helpers:Translate LoginPlaceholderEmail}"
-                PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
                 ReturnType="Next"
+                Style="{StaticResource EntryCustom}"
                 Text="{Binding Email}"
-                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                            Light={StaticResource ColorPrimary900}}"
                 />
-
             <controls:CustomEntry
                 Margin="0,16,0,0"
-                AccentColor="{StaticResource ColorSecondary900}"
-                CardBackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                      Light={StaticResource ColorPrimary100}}"
-                CardBorderColor="{AppThemeBinding Dark={StaticResource ColorPrimary700},
-                                                  Light={StaticResource ColorPrimary200}}"
                 IsPassword="True"
                 LeadingIcon="icon_lock"
-                LeadingIconColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
-                Placeholder="{helpers:Translate LoginPlaceholderPassword}"
-                PlaceholderColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                   Light={StaticResource ColorPrimary900}}"
+                Placeholder="{helpers:Translate LoginPlaceholderEmail}"
                 ReturnType="Go"
+                Style="{StaticResource EntryCustom}"
                 Text="{Binding Password}"
-                TextColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                            Light={StaticResource ColorPrimary900}}"
                 />
-
             <Label
                 Margin="8,0"
                 xct:TouchEffect.NativeAnimation="True"
@@ -85,14 +62,30 @@
                 Text="{helpers:Translate LoginLabelForgotPassword}"
                 VerticalTextAlignment="Start"
                 />
-
-            <Button
+            <pancake:PancakeView
                 Margin="0,32,0,0"
-                Command="{Binding LoginCommand}"
-                Style="{StaticResource ButtonSmallBackgound}"
-                Text="{helpers:Translate LoginButtonLogin}"
-                />
-
+                Padding="16,0"
+                xct:TouchEffect.Command="{Binding LoginCommand}"
+                xct:TouchEffect.NativeAnimation="True"
+                BackgroundGradientEndPoint="1,0"
+                BackgroundGradientStartPoint="0,0"
+                Style="{StaticResource CardButton}"
+                >
+                <pancake:PancakeView.BackgroundGradientStops>
+                    <pancake:GradientStopCollection>
+                        <pancake:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark600}, Light={StaticResource ColorSecondaryLight500}}" />
+                        <pancake:GradientStop Offset="0.5" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                    </pancake:GradientStopCollection>
+                </pancake:PancakeView.BackgroundGradientStops>
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource LabelSubtitleNormal}"
+                    Text="{helpers:Translate LoginButtonLogin}"
+                    TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900},
+                                                Light={StaticResource ColorPrimaryLight300}}"
+                    VerticalTextAlignment="Center"
+                    />
+            </pancake:PancakeView>
             <Label
                 Margin="0,10"
                 HorizontalTextAlignment="Center"
@@ -100,15 +93,15 @@
                 Text="{helpers:Translate LoginLabelOr}"
                 VerticalTextAlignment="Start"
                 />
-
             <pancake:PancakeView
                 Padding="16,0"
                 xct:TouchEffect.NativeAnimation="True"
                 BackgroundColor="{StaticResource ColorTransparent}"
-                Border="{pancake:BorderMarkup Color={StaticResource ColorSecondary900},
-                                              Thickness=2}"
                 Style="{StaticResource CardButton}"
                 >
+                <pancake:PancakeView.Border>
+                    <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                </pancake:PancakeView.Border>
                 <FlexLayout
                     AlignItems="Center"
                     Direction="Row"
@@ -119,13 +112,13 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelBodyNormal}"
                         Text="{helpers:Translate LoginButtonMetamesk}"
-                        TextColor="{StaticResource ColorSecondary900}"
+                        TextColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                    Light={StaticResource ColorSecondaryLight900}}"
                         VerticalTextAlignment="Center"
                         />
                     <Image Source="icon_metamask" WidthRequest="24" />
                 </FlexLayout>
             </pancake:PancakeView>
-
             <Label
                 Margin="0,60,0,0"
                 xct:TouchEffect.NativeAnimation="True"
@@ -139,7 +132,7 @@
                     <FormattedString>
                         <Span Text="{helpers:Translate LoginLabelNotResgistered}" />
                         <Span Text=" " />
-                        <Span Text="{helpers:Translate LoginLabelRegister}" TextColor="{StaticResource ColorSecondary900}" />
+                        <Span Text="{helpers:Translate LoginLabelRegister}" TextColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

@@ -24,6 +24,8 @@
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource LabelTitleLarge}"
                     Text="{helpers:Translate TrendsLabelTitle}"
+                    TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                Light={StaticResource ColorPrimaryLight900}}"
                     VerticalTextAlignment="Start"
                     />
                 <Label
@@ -33,15 +35,17 @@
                     VerticalTextAlignment="Start"
                     />
             </StackLayout>
-
             <pancake:PancakeView
                 Grid.Row="1"
                 Margin="16,0"
                 Padding="16"
-                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                  Light={StaticResource ColorPrimary100}}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                                  Light={StaticResource ColorPrimaryLight50}}"
                 CornerRadius="8"
                 >
+                <pancake:PancakeView.Border>
+                    <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                </pancake:PancakeView.Border>
                 <StackLayout Orientation="Horizontal">
                     <Label
                         HorizontalOptions="FillAndExpand"
@@ -51,8 +55,8 @@
                         VerticalOptions="Center"
                         />
                     <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimary50},
-                                                                            Light={StaticResource ColorPrimary900}}"
+                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                            Light={StaticResource ColorPrimaryLight800}}"
                         HeightRequest="24"
                         HorizontalOptions="End"
                         Source="icon_angle_down"
@@ -60,7 +64,6 @@
                         />
                 </StackLayout>
             </pancake:PancakeView>
-
             <CollectionView
                 Grid.Row="2"
                 ItemsSource="{Binding TrendViewModel.Trends}"
@@ -88,15 +91,15 @@
                                 >
                                 <pancake:PancakeView
                                     Padding="0"
-                                    Border="{pancake:BorderMarkup Thickness=2,
-                                                                  Color={AppThemeBinding Dark={StaticResource ColorPrimary600},
-                                                                                         Light={StaticResource ColorPrimary300}}}"
                                     CornerRadius="20"
                                     HeightRequest="40"
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center"
                                     WidthRequest="40"
                                     >
+                                    <pancake:PancakeView.Border>
+                                        <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600}, Light={StaticResource ColorPrimaryLight600}}" />
+                                    </pancake:PancakeView.Border>
                                     <Image
                                         HeightRequest="45"
                                         HorizontalOptions="Center"
@@ -108,7 +111,8 @@
                                 <Image
                                     HeightRequest="20"
                                     HorizontalOptions="End"
-                                    Source="icon_verified"
+                                    Source="{AppThemeBinding Dark=icon_verified_dark,
+                                                             Light=icon_verified_light}"
                                     VerticalOptions="End"
                                     />
                             </Grid>
@@ -136,11 +140,13 @@
                                 VerticalOptions="Center"
                                 >
                                 <StackLayout Orientation="Horizontal" Spacing="8">
-                                    <Image HeightRequest="20" Source="icon_ethereum" />
+                                    <Image HeightRequest="20" Source="{AppThemeBinding Dark=icon_ethereum_dark, Light=icon_ethereum_light}" />
                                     <Label
                                         HorizontalTextAlignment="End"
                                         Style="{StaticResource LabelBodyNormal}"
                                         Text="{Binding Value, StringFormat='{0:N1} ETH'}"
+                                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                    Light={StaticResource ColorPrimaryLight900}}"
                                         VerticalTextAlignment="Center"
                                         />
                                 </StackLayout>
@@ -150,7 +156,8 @@
                                     Spacing="8"
                                     >
                                     <Image
-                                        xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryGreen}"
+                                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkGreen},
+                                                                                            Light={StaticResource ColorTertiaryLightGreen}}"
                                         HeightRequest="20"
                                         IsVisible="False"
                                         Source="icon_arrow_up"
@@ -165,9 +172,9 @@
                                             </DataTrigger>
                                         </Image.Triggers>
                                     </Image>
-
                                     <Image
-                                        xct:IconTintColorEffect.TintColor="{StaticResource ColorTertiaryRed}"
+                                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorTertiaryDarkRed},
+                                                                                            Light={StaticResource ColorTertiaryLightRed}}"
                                         HeightRequest="20"
                                         IsVisible="False"
                                         Source="icon_arrow_down"
@@ -182,11 +189,12 @@
                                             </DataTrigger>
                                         </Image.Triggers>
                                     </Image>
-
                                     <Label
                                         HorizontalTextAlignment="End"
                                         Style="{StaticResource LabelBodyNormal}"
                                         Text="{Binding Percentage, StringFormat='{0:P0}'}"
+                                        TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                    Light={StaticResource ColorPrimaryLight900}}"
                                         VerticalTextAlignment="Center"
                                         />
                                 </StackLayout>
@@ -194,8 +202,8 @@
                             <BoxView
                                 Grid.Row="1"
                                 Grid.ColumnSpan="3"
-                                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimary800},
-                                                                  Light={StaticResource ColorPrimary100}}"
+                                BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                                                  Light={StaticResource ColorPrimaryLight400}}"
                                 HeightRequest="1"
                                 VerticalOptions="FillAndExpand"
                                 />
