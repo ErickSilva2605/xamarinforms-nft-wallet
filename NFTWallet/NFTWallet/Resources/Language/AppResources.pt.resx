@@ -181,7 +181,7 @@
     <value>Curtidas</value>
   </data>
   <data name="SettingsLabelDark" xml:space="preserve">
-    <value>Tema Escuro</value>
+    <value>Tema</value>
   </data>
   <data name="SettingsLabelFavorites" xml:space="preserve">
     <value>Favoritos</value>

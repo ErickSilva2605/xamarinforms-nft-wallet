@@ -250,7 +250,7 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Dark Theme.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Theme.
         /// </summary>
         internal static string SettingsLabelDark {
             get {
