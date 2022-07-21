@@ -241,13 +241,17 @@
                     Grid.Column="1"
                     Padding="10,0"
                     xct:TouchEffect.NativeAnimation="True"
-                    BackgroundColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
-                                                      Light={StaticResource ColorSecondaryLight900}}"
                     HorizontalOptions="Center"
                     Style="{StaticResource CardButton}"
                     VerticalOptions="Center"
                     WidthRequest="130"
                     >
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark600}, Light={StaticResource ColorSecondaryLight500}}" />
+                            <pancake:GradientStop Offset="0.5" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
                     <StackLayout
                         HorizontalOptions="Center"
                         Orientation="Horizontal"

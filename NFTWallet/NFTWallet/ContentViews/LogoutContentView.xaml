@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="NFTWallet.ContentViews.LogoutContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    >
+    <ContentView.Content>
+        <Grid
+            Padding="16"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="15"
+            >
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelTitleSmall}"
+                Text="{helpers:Translate LogoutLabelTitle}"
+                VerticalTextAlignment="Start"
+                />
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelBodyNormal}"
+                Text="{helpers:Translate LogoutLabelSubtitle}"
+                />
+            <Grid
+                Grid.Row="2"
+                Margin="0,15,0,0"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="20"
+                >
+                <pancake:PancakeView
+                    Padding="10,0"
+                    xct:TouchEffect.Command="{Binding CloseModalCommand}"
+                    xct:TouchEffect.NativeAnimation="True"
+                    BackgroundColor="{StaticResource ColorTransparent}"
+                    HorizontalOptions="End"
+                    Style="{StaticResource CardButton}"
+                    VerticalOptions="Center"
+                    WidthRequest="130"
+                    >
+                    <pancake:PancakeView.Border>
+                        <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                    </pancake:PancakeView.Border>
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="16"
+                        VerticalOptions="Center"
+                        >
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelBodyNormal}"
+                            Text="{helpers:Translate LogoutLabelCancel}"
+                            TextColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                        Light={StaticResource ColorSecondaryLight900}}"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+                <pancake:PancakeView
+                    Grid.Column="1"
+                    Padding="10,0"
+                    xct:TouchEffect.Command="{Binding LogoutCommand}"
+                    xct:TouchEffect.NativeAnimation="True"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource CardButton}"
+                    VerticalOptions="Center"
+                    WidthRequest="130"
+                    >
+                    <pancake:PancakeView.BackgroundGradientStops>
+                        <pancake:GradientStopCollection>
+                            <pancake:GradientStop Offset="0" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark600}, Light={StaticResource ColorSecondaryLight500}}" />
+                            <pancake:GradientStop Offset="0.5" Color="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                        </pancake:GradientStopCollection>
+                    </pancake:PancakeView.BackgroundGradientStops>
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="16"
+                        VerticalOptions="Center"
+                        >
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource LabelBodyNormal}"
+                            Text="{helpers:Translate LogoutLabelDisconnect}"
+                            TextColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900},
+                                                        Light={StaticResource ColorPrimaryLight300}}"
+                            VerticalTextAlignment="Center"
+                            />
+                    </StackLayout>
+                </pancake:PancakeView>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

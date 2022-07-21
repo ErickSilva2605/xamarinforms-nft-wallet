@@ -223,6 +223,42 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cancel.
+        /// </summary>
+        internal static string LogoutLabelCancel {
+            get {
+                return ResourceManager.GetString("LogoutLabelCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Disconnect.
+        /// </summary>
+        internal static string LogoutLabelDisconnect {
+            get {
+                return ResourceManager.GetString("LogoutLabelDisconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Are you sure you want to disconnect?.
+        /// </summary>
+        internal static string LogoutLabelSubtitle {
+            get {
+                return ResourceManager.GetString("LogoutLabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Logout?.
+        /// </summary>
+        internal static string LogoutLabelTitle {
+            get {
+                return ResourceManager.GetString("LogoutLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Followers.
         /// </summary>
         internal static string ProfileLabelFollowers {

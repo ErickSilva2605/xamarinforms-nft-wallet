@@ -3,428 +3,427 @@
     x:Class="NFTWallet.Views.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentViews="clr-namespace:NFTWallet.ContentViews"
+    xmlns:controls="clr-namespace:NFTWallet.Controls"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     NavigationPage.HasNavigationBar="False"
     >
-    <ContentPage.Content>
-        <Grid
-            Padding="0,44,0,16"
-            RowDefinitions="Auto,Auto,*"
-            RowSpacing="16"
+    <ContentPage.Resources>
+        <Style x:Key="SettingsCardImage" TargetType="Image">
+            <Setter Property="HeightRequest" Value="24" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        <Style
+            x:Key="SettingsCardLabel"
+            BasedOn="{StaticResource LabelBodyNormal}"
+            TargetType="Label"
             >
-            <Grid Padding="16,0">
-                <Label
-                    HorizontalTextAlignment="Center"
-                    Style="{StaticResource LabelTitleSmall}"
-                    Text="{helpers:Translate SettingsLabelTitle}"
-                    VerticalTextAlignment="Start"
-                    />
-                <pancake:PancakeView
-                    Padding="0"
-                    xct:TouchEffect.Command="{Binding NavigateBackCommand}"
-                    xct:TouchEffect.NativeAnimation="True"
-                    CornerRadius="15"
-                    HeightRequest="30"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Start"
-                    WidthRequest="30"
-                    >
-                    <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                            Light={StaticResource ColorPrimaryLight800}}"
-                        HeightRequest="24"
-                        HorizontalOptions="Center"
-                        Source="icon_arrow_left"
-                        VerticalOptions="Center"
-                        />
-                </pancake:PancakeView>
-            </Grid>
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RelativeLayout>
             <Grid
-                Grid.Row="1"
-                Margin="0,20,0,0"
-                Padding="16,0"
-                ColumnDefinitions="Auto,*,Auto"
-                ColumnSpacing="16"
+                Padding="0,44,0,16"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RowDefinitions="Auto,Auto,*"
+                RowSpacing="16"
                 >
-                <Grid
-                    Padding="1"
-                    HeightRequest="60"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    WidthRequest="60"
-                    >
+                <Grid Padding="16,0">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LabelTitleSmall}"
+                        Text="{helpers:Translate SettingsLabelTitle}"
+                        VerticalTextAlignment="Start"
+                        />
                     <pancake:PancakeView
                         Padding="0"
-                        CornerRadius="28"
-                        HeightRequest="56"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="56"
+                        xct:TouchEffect.Command="{Binding NavigateBackCommand}"
+                        xct:TouchEffect.NativeAnimation="True"
+                        CornerRadius="15"
+                        HeightRequest="30"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        WidthRequest="30"
                         >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600}, Light={StaticResource ColorPrimaryLight600}}" />
-                        </pancake:PancakeView.Border>
                         <Image
-                            HeightRequest="56"
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                Light={StaticResource ColorPrimaryLight800}}"
+                            HeightRequest="24"
                             HorizontalOptions="Center"
-                            Source="{Binding User.Image}"
+                            Source="icon_arrow_left"
                             VerticalOptions="Center"
-                            WidthRequest="56"
                             />
                     </pancake:PancakeView>
-                    <Image
-                        HeightRequest="24"
-                        HorizontalOptions="End"
-                        Source="{AppThemeBinding Dark=icon_verified_dark,
-                                                 Light=icon_verified_light}"
-                        VerticalOptions="End"
-                        />
                 </Grid>
-                <Label
-                    Grid.Column="1"
-                    HorizontalTextAlignment="Start"
-                    VerticalOptions="Fill"
-                    VerticalTextAlignment="Center"
-                    >
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding User.Name}" />
-                            <Span Text="{x:Static system:Environment.NewLine}" />
-                            <Span Style="{StaticResource LabelBodySmall}" Text="{Binding User.UserName}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <pancake:PancakeView
-                    Grid.Column="2"
-                    Padding="0"
-                    xct:TouchEffect.NativeAnimation="True"
-                    CornerRadius="15"
-                    HeightRequest="30"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    WidthRequest="30"
-                    >
-                    <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                            Light={StaticResource ColorPrimaryLight800}}"
-                        HeightRequest="24"
-                        HorizontalOptions="Center"
-                        Source="icon_edit"
-                        VerticalOptions="Center"
-                        />
-                </pancake:PancakeView>
-            </Grid>
-            <ScrollView Grid.Row="2" Margin="0,16,0,0">
-                <StackLayout
+                <Grid
+                    Grid.Row="1"
+                    Margin="0,20,0,0"
                     Padding="16,0"
-                    Orientation="Vertical"
-                    Spacing="16"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="16"
                     >
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
+                    <Grid
+                        Padding="1"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="60"
                         >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                        <pancake:PancakeView
+                            Padding="0"
+                            CornerRadius="28"
+                            HeightRequest="56"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="56"
+                            >
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600}, Light={StaticResource ColorPrimaryLight600}}" />
+                            </pancake:PancakeView.Border>
                             <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_arrow_left_right"
+                                HeightRequest="56"
+                                HorizontalOptions="Center"
+                                Source="{Binding User.Image}"
                                 VerticalOptions="Center"
+                                WidthRequest="56"
                                 />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelTransfer}"
-                                VerticalTextAlignment="Center"
-                                />
+                        </pancake:PancakeView>
+                        <Image
+                            HeightRequest="24"
+                            HorizontalOptions="End"
+                            Source="{AppThemeBinding Dark=icon_verified_dark,
+                                                     Light=icon_verified_light}"
+                            VerticalOptions="End"
+                            />
+                    </Grid>
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Fill"
+                        VerticalTextAlignment="Center"
+                        >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Style="{StaticResource LabelTitleSmall}" Text="{Binding User.Name}" />
+                                <Span Text="{x:Static system:Environment.NewLine}" />
+                                <Span Style="{StaticResource LabelBodySmall}" Text="{Binding User.UserName}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <pancake:PancakeView
+                        Grid.Column="2"
+                        Padding="0"
+                        xct:TouchEffect.NativeAnimation="True"
+                        CornerRadius="15"
+                        HeightRequest="30"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        WidthRequest="30"
+                        >
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                Light={StaticResource ColorPrimaryLight800}}"
+                            HeightRequest="24"
+                            HorizontalOptions="Center"
+                            Source="icon_edit"
+                            VerticalOptions="Center"
+                            />
+                    </pancake:PancakeView>
+                </Grid>
+                <ScrollView
+                    Grid.Row="2"
+                    Margin="0,16,0,0"
+                    VerticalOptions="Fill"
+                    >
+                    <StackLayout
+                        Padding="16,0"
+                        Orientation="Vertical"
+                        Spacing="16"
+                        >
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_arrow_left_right"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelTransfer}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_wallet"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelWallet}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_favorite"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelFavorites}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_privacy_policy"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelPrivacy}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView
+                            xct:TouchEffect.Command="{Binding OpenModalChangeLanguageCommand}"
+                            xct:TouchEffect.NativeAnimation="True"
+                            Style="{StaticResource SettingsCard}"
+                            >
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_language"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelLanguage}"
+                                    />
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalTextAlignment="End"
+                                    Style="{StaticResource LabelBodyNormal}"
+                                    Text="pt-br"
+                                    TextTransform="Uppercase"
+                                    VerticalTextAlignment="Center"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_help"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelHelp}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_lock"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelPassword}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView xct:TouchEffect.NativeAnimation="True" Style="{StaticResource SettingsCard}">
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_notification"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelNotification}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView
+                            xct:TouchEffect.Command="{Binding OpenModalChangeThemeCommand}"
+                            xct:TouchEffect.NativeAnimation="True"
+                            Style="{StaticResource SettingsCard}"
+                            >
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_dark_mode"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelDark}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView
+                            xct:TouchEffect.Command="{Binding OpenModalLogoutCommand}"
+                            xct:TouchEffect.NativeAnimation="True"
+                            Style="{StaticResource SettingsCard}"
+                            >
+                            <pancake:PancakeView.Border>
+                                <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                            </pancake:PancakeView.Border>
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                                <Image
+                                    xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                        Light={StaticResource ColorPrimaryLight800}}"
+                                    Source="icon_logout"
+                                    Style="{StaticResource SettingsCardImage}"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource SettingsCardLabel}"
+                                    Text="{helpers:Translate SettingsLabelLogout}"
+                                    />
+                            </Grid>
+                        </pancake:PancakeView>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+            <ContentView
+                BackgroundColor="Black"
+                IsVisible="{Binding DrawerIsOpen}"
+                Opacity=".60"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1,
+                                                                       Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1,
+                                                                      Constant=0}"
+                >
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseModalCommand}" />
+                </ContentView.GestureRecognizers>
+            </ContentView>
+            <controls:CustomFrameBottomDrawer
+                Padding="0"
+                BackgroundColor="Transparent"
+                HasShadow="False"
+                IsOpen="{Binding DrawerIsOpen}"
+                LockStates="{Binding LockStates}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1,
+                                                                       Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1,
+                                                                      Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=1,
+                                                                  Constant=0}"
+                >
+                <Grid
+                    Margin="0,15,0,0"
+                    HorizontalOptions="FillAndExpand"
+                    RowSpacing="5"
+                    VerticalOptions="FillAndExpand"
+                    >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <BoxView
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900},
+                                                          Light={StaticResource ColorPrimaryLight200}}"
+                        CornerRadius="3"
+                        HeightRequest="6"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        WidthRequest="80"
+                        />
+                    <pancake:PancakeView
+                        Grid.Row="1"
+                        Margin="0"
+                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark900},
+                                                          Light={StaticResource ColorPrimaryLight200}}"
+                        CornerRadius="30,30,0,0"
+                        VerticalOptions="FillAndExpand"
+                        >
+                        <Grid>
+                            <contentViews:LogoutContentView IsVisible="{Binding LogoutVisible}" />
                         </Grid>
                     </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_wallet"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelWallet}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_favorite"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelFavorites}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_privacy_policy"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelPrivacy}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_language"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelLanguage}"
-                                VerticalTextAlignment="Center"
-                                />
-                            <Label
-                                Grid.Column="2"
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HorizontalTextAlignment="End"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="pt-br"
-                                TextTransform="Uppercase"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_help"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelHelp}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_lock"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelPassword}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_notification"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelNotification}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_dark_mode"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelDark}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView
-                        Padding="8,16"
-                        xct:TouchEffect.NativeAnimation="True"
-                        BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
-                                                          Light={StaticResource ColorPrimaryLight50}}"
-                        CornerRadius="8"
-                        >
-                        <pancake:PancakeView.Border>
-                            <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
-                        </pancake:PancakeView.Border>
-                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
-                            <Image
-                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
-                                                                                    Light={StaticResource ColorPrimaryLight800}}"
-                                HeightRequest="24"
-                                HorizontalOptions="Start"
-                                Source="icon_logout"
-                                VerticalOptions="Center"
-                                />
-                            <Label
-                                Grid.Column="1"
-                                HorizontalOptions="Fill"
-                                HorizontalTextAlignment="Start"
-                                Style="{StaticResource LabelBodyNormal}"
-                                Text="{helpers:Translate SettingsLabelLogout}"
-                                VerticalTextAlignment="Center"
-                                />
-                        </Grid>
-                    </pancake:PancakeView>
-                </StackLayout>
-            </ScrollView>
-        </Grid>
+                </Grid>
+            </controls:CustomFrameBottomDrawer>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

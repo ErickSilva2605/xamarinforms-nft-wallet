@@ -14,4 +14,12 @@
         <Setter Property="CornerRadius" Value="{StaticResource FrameCornerRadiusSize}" />
         <Setter Property="HorizontalOptions" Value="Fill" />
     </Style>
+
+    <Style x:Key="SettingsCard" TargetType="{x:Type pancake:PancakeView}">
+        <Setter Property="Padding" Value="16,0" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight50}}" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="HeightRequest" Value="56" />
+        <Setter Property="VerticalOptions" Value="Fill" />
+    </Style>
 </ResourceDictionary>

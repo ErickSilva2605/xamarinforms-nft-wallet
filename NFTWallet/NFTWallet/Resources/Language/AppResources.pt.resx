@@ -171,6 +171,18 @@
   <data name="LoginPlaceholderPassword" xml:space="preserve">
     <value>Senha</value>
   </data>
+  <data name="LogoutLabelCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="LogoutLabelDisconnect" xml:space="preserve">
+    <value>Desconectar</value>
+  </data>
+  <data name="LogoutLabelSubtitle" xml:space="preserve">
+    <value>Tem certeza de que deseja se desconectar?</value>
+  </data>
+  <data name="LogoutLabelTitle" xml:space="preserve">
+    <value>Sair?</value>
+  </data>
   <data name="ProfileLabelFollowers" xml:space="preserve">
     <value>Seguidores</value>
   </data>
