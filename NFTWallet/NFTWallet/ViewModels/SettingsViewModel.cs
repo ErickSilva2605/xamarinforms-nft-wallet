@@ -19,9 +19,6 @@ namespace NFTWallet.ViewModels
         private bool _changeThemeVisible;
         private bool _changeLanguageVisible;
         private bool _logoutVisible;
-        //private bool _themeAutomaticChecked;
-        //private bool _themeDarkChecked;
-        //private bool _themeLightChecked;
 
         public UserModel User
         {
@@ -69,24 +66,6 @@ namespace NFTWallet.ViewModels
         {
             get => ThemeHelper.DeviceHasDarkMode();
         }
-
-        //public bool ThemeAutomaticChecked
-        //{
-        //    get => _themeAutomaticChecked;
-        //    set => SetProperty(ref _themeAutomaticChecked, value);
-        //}
-
-        //public bool ThemeDarkChecked
-        //{
-        //    get => _themeDarkChecked;
-        //    set => SetProperty(ref _themeDarkChecked, value);
-        //}
-
-        //public bool ThemeLightChecked
-        //{
-        //    get => _themeLightChecked;
-        //    set => SetProperty(ref _themeLightChecked, value);
-        //}
 
         public ICommand NavigateBackCommand { get; }
         public ICommand OpenModalChangeLanguageCommand { get; }
