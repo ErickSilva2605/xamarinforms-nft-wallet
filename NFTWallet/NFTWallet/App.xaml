@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/Resources/Styles/LabelStyles.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/FrameStyles.xaml" />
                 <ResourceDictionary Source="/Resources/Styles/EntryStyles.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/RadioButtonStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="ColorTransparent">#00000000</Color>

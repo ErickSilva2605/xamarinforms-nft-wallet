@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="NFTWallet.Resources.Styles.RadioButtonStyles"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    >
+    <ControlTemplate x:Key="RadioButtonTemplate">
+        <Frame
+            Padding="0"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                              Light={StaticResource ColorPrimaryLight50}}"
+            BorderColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                          Light={StaticResource ColorPrimaryLight400}}"
+            CornerRadius="8"
+            HasShadow="False"
+            HeightRequest="90"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            WidthRequest="90"
+            >
+            <Grid Margin="4" WidthRequest="80">
+                <Grid
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"
+                    WidthRequest="20"
+                    >
+                    <Ellipse
+                        x:Name="OutsideCircle"
+                        Fill="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
+                                               Light={StaticResource ColorPrimaryLight50}}"
+                        HeightRequest="18"
+                        HorizontalOptions="Center"
+                        Stroke="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                 Light={StaticResource ColorPrimaryLight800}}"
+                        StrokeThickness="1"
+                        VerticalOptions="Center"
+                        WidthRequest="18"
+                        />
+                    <Ellipse
+                        x:Name="InsideCircle"
+                        Fill="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                               Light={StaticResource ColorSecondaryLight900}}"
+                        HeightRequest="8"
+                        HorizontalOptions="Center"
+                        Opacity="0"
+                        StrokeThickness="0"
+                        VerticalOptions="Center"
+                        WidthRequest="8"
+                        />
+                </Grid>
+                <ContentPresenter />
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CheckedStates">
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                                <Setter TargetName="OutsideCircle" Property="Ellipse.Stroke" Value="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900}, Light={StaticResource ColorSecondaryLight900}}" />
+                                <Setter TargetName="InsideCircle" Property="Ellipse.Opacity" Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Unchecked">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
+                                <Setter TargetName="OutsideCircle" Property="Ellipse.Stroke" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50}, Light={StaticResource ColorPrimaryLight800}}" />
+                                <Setter TargetName="InsideCircle" Property="Ellipse.Opacity" Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </VisualStateManager.VisualStateGroups>
+        </Frame>
+    </ControlTemplate>
+    <Style x:Key="CustomRadioButton" TargetType="RadioButton">
+        <Setter Property="ControlTemplate" Value="{StaticResource RadioButtonTemplate}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+</ResourceDictionary>

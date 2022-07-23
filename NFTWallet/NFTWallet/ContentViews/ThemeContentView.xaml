@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="NFTWallet.ContentViews.ThemeContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="themePage"
+    >
+    <ContentView.Content>
+        <Grid
+            Padding="16"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="15"
+            >
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelTitleSmall}"
+                Text="{helpers:Translate ThemeLabelTitle}"
+                VerticalTextAlignment="Start"
+                />
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelBodyNormal}"
+                Text="{helpers:Translate ThemeLabelSubtitle}"
+                />
+            <FlexLayout
+                Grid.Row="2"
+                Margin="0,15,0,0"
+                AlignItems="Start"
+                JustifyContent="SpaceAround"
+                RadioButtonGroup.GroupName="Theme"
+                RadioButtonGroup.SelectedValue="{Binding ThemeSelected}"
+                >
+                <RadioButton
+                    xct:TouchEffect.NativeAnimation="True"
+                    IsVisible="{Binding DeviceHasDarkMode}"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="0"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeThemeCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_user_cog"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate ThemeLabelAutomatic}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton
+                    Grid.Column="1"
+                    xct:TouchEffect.NativeAnimation="True"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="1"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeThemeCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_sun"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate ThemeLabelLight}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton
+                    Grid.Column="2"
+                    xct:TouchEffect.NativeAnimation="True"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="2"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeThemeCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_moon"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate ThemeLabelDark}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+            </FlexLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

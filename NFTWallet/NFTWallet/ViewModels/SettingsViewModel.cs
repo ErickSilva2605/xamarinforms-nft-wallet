@@ -13,11 +13,15 @@ namespace NFTWallet.ViewModels
     public class SettingsViewModel : BaseViewModel
     {
         private UserModel _user;
-        private bool _drawerIsOpen;
+        private int _themeSelected;
         private double[] _lockStates = new double[] { };
+        private bool _drawerIsOpen;
         private bool _changeThemeVisible;
         private bool _changeLanguageVisible;
         private bool _logoutVisible;
+        //private bool _themeAutomaticChecked;
+        //private bool _themeDarkChecked;
+        //private bool _themeLightChecked;
 
         public UserModel User
         {
@@ -25,16 +29,22 @@ namespace NFTWallet.ViewModels
             set => SetProperty(ref _user, value);
         }
 
-        public bool DrawerIsOpen
+        public int ThemeSelected
         {
-            get { return _drawerIsOpen; }
-            set { SetProperty(ref _drawerIsOpen, value); }
+            get => _themeSelected;
+            set => SetProperty(ref _themeSelected, value);
         }
 
         public double[] LockStates
         {
             get => _lockStates;
             set => SetProperty(ref _lockStates, value);
+        }
+
+        public bool DrawerIsOpen
+        {
+            get { return _drawerIsOpen; }
+            set { SetProperty(ref _drawerIsOpen, value); }
         }
 
         public bool ChangeThemeVisible
@@ -55,12 +65,36 @@ namespace NFTWallet.ViewModels
             set => SetProperty(ref _logoutVisible, value);
         }
 
+        public bool DeviceHasDarkMode
+        {
+            get => ThemeHelper.DeviceHasDarkMode();
+        }
+
+        //public bool ThemeAutomaticChecked
+        //{
+        //    get => _themeAutomaticChecked;
+        //    set => SetProperty(ref _themeAutomaticChecked, value);
+        //}
+
+        //public bool ThemeDarkChecked
+        //{
+        //    get => _themeDarkChecked;
+        //    set => SetProperty(ref _themeDarkChecked, value);
+        //}
+
+        //public bool ThemeLightChecked
+        //{
+        //    get => _themeLightChecked;
+        //    set => SetProperty(ref _themeLightChecked, value);
+        //}
+
         public ICommand NavigateBackCommand { get; }
         public ICommand OpenModalChangeLanguageCommand { get; }
         public ICommand OpenModalChangeThemeCommand { get; }
         public ICommand OpenModalLogoutCommand { get; }
         public ICommand CloseModalCommand { get; }
         public ICommand LogoutCommand { get; }
+        public ICommand ChangeThemeCommand { get; }
 
         public SettingsViewModel(INavigation navigation, UserModel user)
             : base(navigation)
@@ -71,8 +105,14 @@ namespace NFTWallet.ViewModels
             OpenModalChangeThemeCommand = new Command(async () => await ExecuteOpenModalChangeThemeCommand());
             OpenModalLogoutCommand = new Command(async () => await ExecuteOpenModalLogoutCommand());
             CloseModalCommand = new Command(async () => await ExecuteCloseModalCommand());
+            ChangeThemeCommand = new Command(async () => await ExecuteChangeThemeCommand());
             LogoutCommand = new Command(async () => await ExecuteLogoutCommand());
+
+            SelectCurrentTheme();
         }
+
+        private void SelectCurrentTheme()
+            => ThemeSelected = (int)ThemeHelper.GetCurrentTheme();
 
         private async Task ExecuteNavigateBackCommand()
         {
@@ -105,7 +145,7 @@ namespace NFTWallet.ViewModels
                 await Task.Run(() =>
                 {
                     IsBusy = true;
-                    LockStates = new double[] { 0, 0.5 };
+                    LockStates = new double[] { 0, 0.33 };
                     LogoutVisible = false;
                     ChangeLanguageVisible = false;
                     ChangeThemeVisible = true;
@@ -132,10 +172,10 @@ namespace NFTWallet.ViewModels
                 await Task.Run(() =>
                 {
                     IsBusy = true;
-                    LockStates = new double[] { 0, 0.5 };
+                    LockStates = new double[] { 0, 0.33 };
                     LogoutVisible = false;
-                    ChangeLanguageVisible = true;
                     ChangeThemeVisible = false;
+                    ChangeLanguageVisible = true;
                     DrawerIsOpen = true;
                 });
             }
@@ -160,11 +200,33 @@ namespace NFTWallet.ViewModels
                 {
                     IsBusy = true;
                     LockStates = new double[] { 0, 0.28 };
-                    LogoutVisible = true;
                     ChangeLanguageVisible = false;
                     ChangeThemeVisible = false;
+                    LogoutVisible = true;
                     DrawerIsOpen = true;
                 });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erro", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task ExecuteChangeThemeCommand()
+        {
+            if (IsBusy || ThemeSelected == (int)ThemeHelper.GetCurrentTheme())
+                return;
+
+            try
+            {
+                IsBusy = true;
+                DrawerIsOpen = false;
+                await Task.Delay(50);
+                ThemeHelper.ChangeTheme((OSAppTheme)ThemeSelected);
             }
             catch (Exception ex)
             {

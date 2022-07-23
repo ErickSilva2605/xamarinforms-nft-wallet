@@ -225,6 +225,27 @@
   <data name="SettingsLabelWallet" xml:space="preserve">
     <value>Carteira</value>
   </data>
+  <data name="ThemeLabelAutomatic" xml:space="preserve">
+    <value>Automático (Sistema)</value>
+  </data>
+  <data name="ThemeLabelCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ThemeLabelDark" xml:space="preserve">
+    <value>Escuro</value>
+  </data>
+  <data name="ThemeLabelLight" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="ThemeLabelOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ThemeLabelSubtitle" xml:space="preserve">
+    <value>Escolha um tema!</value>
+  </data>
+  <data name="ThemeLabelTitle" xml:space="preserve">
+    <value>Tema</value>
+  </data>
   <data name="TrendsLabelOrder" xml:space="preserve">
     <value>Mais recentes</value>
   </data>

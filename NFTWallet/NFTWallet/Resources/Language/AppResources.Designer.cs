@@ -385,6 +385,69 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Automatic (System).
+        /// </summary>
+        internal static string ThemeLabelAutomatic {
+            get {
+                return ResourceManager.GetString("ThemeLabelAutomatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cancel.
+        /// </summary>
+        internal static string ThemeLabelCancel {
+            get {
+                return ResourceManager.GetString("ThemeLabelCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Dark.
+        /// </summary>
+        internal static string ThemeLabelDark {
+            get {
+                return ResourceManager.GetString("ThemeLabelDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Light.
+        /// </summary>
+        internal static string ThemeLabelLight {
+            get {
+                return ResourceManager.GetString("ThemeLabelLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Ok.
+        /// </summary>
+        internal static string ThemeLabelOk {
+            get {
+                return ResourceManager.GetString("ThemeLabelOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Choose a theme!.
+        /// </summary>
+        internal static string ThemeLabelSubtitle {
+            get {
+                return ResourceManager.GetString("ThemeLabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Theme.
+        /// </summary>
+        internal static string ThemeLabelTitle {
+            get {
+                return ResourceManager.GetString("ThemeLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Most recent.
         /// </summary>
         internal static string TrendsLabelOrder {

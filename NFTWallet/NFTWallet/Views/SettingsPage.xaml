@@ -12,20 +12,13 @@
     NavigationPage.HasNavigationBar="False"
     >
     <ContentPage.Resources>
-        <Style x:Key="SettingsCardImage" TargetType="Image">
-            <Setter Property="HeightRequest" Value="24" />
-            <Setter Property="HorizontalOptions" Value="Start" />
-            <Setter Property="VerticalOptions" Value="Center" />
-        </Style>
-        <Style
-            x:Key="SettingsCardLabel"
-            BasedOn="{StaticResource LabelBodyNormal}"
-            TargetType="Label"
-            >
-            <Setter Property="HorizontalOptions" Value="Fill" />
-            <Setter Property="HorizontalTextAlignment" Value="Start" />
-            <Setter Property="VerticalTextAlignment" Value="Center" />
-        </Style>
+        <ResourceDictionary>
+            <Style x:Key="SettingsCardImage" TargetType="Image">
+                <Setter Property="HeightRequest" Value="24" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <RelativeLayout>
@@ -420,6 +413,7 @@
                         >
                         <Grid>
                             <contentViews:LogoutContentView IsVisible="{Binding LogoutVisible}" />
+                            <contentViews:ThemeContentView IsVisible="{Binding ChangeThemeVisible}" />
                         </Grid>
                     </pancake:PancakeView>
                 </Grid>

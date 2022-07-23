@@ -105,4 +105,14 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50}, Light={StaticResource ColorPrimaryLight900}}" />
         <Setter Property="FontSize" Value="{StaticResource BodyLargeFontSize}" />
     </Style>
+
+    <Style
+        x:Key="SettingsCardLabel"
+        BasedOn="{StaticResource LabelBodyNormal}"
+        TargetType="Label"
+        >
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
 </ResourceDictionary>
