@@ -311,4 +311,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_moon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_brazil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_eua.png" />
+  </ItemGroup>
 </Project>

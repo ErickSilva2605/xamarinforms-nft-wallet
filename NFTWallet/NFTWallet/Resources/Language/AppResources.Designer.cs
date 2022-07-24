@@ -133,6 +133,51 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Automatic (System).
+        /// </summary>
+        internal static string LanguageLabelAutomatic {
+            get {
+                return ResourceManager.GetString("LanguageLabelAutomatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a English (en-US).
+        /// </summary>
+        internal static string LanguageLabelEnglish {
+            get {
+                return ResourceManager.GetString("LanguageLabelEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Portuguese (pt-BR).
+        /// </summary>
+        internal static string LanguageLabelPortuguese {
+            get {
+                return ResourceManager.GetString("LanguageLabelPortuguese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Choose language!.
+        /// </summary>
+        internal static string LanguageLabelSubtitle {
+            get {
+                return ResourceManager.GetString("LanguageLabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Language.
+        /// </summary>
+        internal static string LanguageLabelTitle {
+            get {
+                return ResourceManager.GetString("LanguageLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Login.
         /// </summary>
         internal static string LoginButtonLogin {
@@ -286,15 +331,6 @@ namespace NFTWallet.Resources.Language {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Theme.
-        /// </summary>
-        internal static string SettingsLabelDark {
-            get {
-                return ResourceManager.GetString("SettingsLabelDark", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Favorites.
         /// </summary>
         internal static string SettingsLabelFavorites {
@@ -354,6 +390,24 @@ namespace NFTWallet.Resources.Language {
         internal static string SettingsLabelPrivacy {
             get {
                 return ResourceManager.GetString("SettingsLabelPrivacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a System.
+        /// </summary>
+        internal static string SettingsLabelSystem {
+            get {
+                return ResourceManager.GetString("SettingsLabelSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Theme.
+        /// </summary>
+        internal static string SettingsLabelTheme {
+            get {
+                return ResourceManager.GetString("SettingsLabelTheme", resourceCulture);
             }
         }
         

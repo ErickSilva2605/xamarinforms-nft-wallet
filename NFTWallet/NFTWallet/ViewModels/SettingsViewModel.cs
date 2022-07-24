@@ -3,6 +3,7 @@ using NFTWallet.Models;
 using NFTWallet.Views;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -13,6 +14,7 @@ namespace NFTWallet.ViewModels
     public class SettingsViewModel : BaseViewModel
     {
         private UserModel _user;
+        private string _languageSelected;
         private int _themeSelected;
         private double[] _lockStates = new double[] { };
         private bool _drawerIsOpen;
@@ -24,6 +26,12 @@ namespace NFTWallet.ViewModels
         {
             get => _user;
             set => SetProperty(ref _user, value);
+        }
+
+        public string LanguageSelected
+        {
+            get => _languageSelected;
+            set => SetProperty(ref _languageSelected, value);
         }
 
         public int ThemeSelected
@@ -73,6 +81,7 @@ namespace NFTWallet.ViewModels
         public ICommand OpenModalLogoutCommand { get; }
         public ICommand CloseModalCommand { get; }
         public ICommand LogoutCommand { get; }
+        public ICommand ChangeLanguageCommand { get; }
         public ICommand ChangeThemeCommand { get; }
 
         public SettingsViewModel(INavigation navigation, UserModel user)
@@ -84,14 +93,19 @@ namespace NFTWallet.ViewModels
             OpenModalChangeThemeCommand = new Command(async () => await ExecuteOpenModalChangeThemeCommand());
             OpenModalLogoutCommand = new Command(async () => await ExecuteOpenModalLogoutCommand());
             CloseModalCommand = new Command(async () => await ExecuteCloseModalCommand());
+            ChangeLanguageCommand = new Command(async () => await ExecuteChangeLanguageCommand());
             ChangeThemeCommand = new Command(async () => await ExecuteChangeThemeCommand());
             LogoutCommand = new Command(async () => await ExecuteLogoutCommand());
 
             SelectCurrentTheme();
+            SelectCurrentLanguage();
         }
 
         private void SelectCurrentTheme()
             => ThemeSelected = (int)ThemeHelper.GetCurrentTheme();
+
+        private void SelectCurrentLanguage()
+            => LanguageSelected = TranslateManagerHelper.Instance.GetCurrentCulture();
 
         private async Task ExecuteNavigateBackCommand()
         {
@@ -195,6 +209,28 @@ namespace NFTWallet.ViewModels
             }
         }
 
+        private async Task ExecuteChangeLanguageCommand()
+        {
+            if (IsBusy || LanguageSelected == TranslateManagerHelper.Instance.GetCurrentCulture())
+                return;
+
+            try
+            {
+                IsBusy = true;
+                
+                await Task.Delay(1);
+                TranslateManagerHelper.Instance.ChangeCulture(LanguageSelected);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erro", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
         private async Task ExecuteChangeThemeCommand()
         {
             if (IsBusy || ThemeSelected == (int)ThemeHelper.GetCurrentTheme())
@@ -203,8 +239,8 @@ namespace NFTWallet.ViewModels
             try
             {
                 IsBusy = true;
-                DrawerIsOpen = false;
-                await Task.Delay(50);
+
+                await Task.Delay(1);
                 ThemeHelper.ChangeTheme((OSAppTheme)ThemeSelected);
             }
             catch (Exception ex)

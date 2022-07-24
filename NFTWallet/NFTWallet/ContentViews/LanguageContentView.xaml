@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="NFTWallet.ContentViews.LanguageContentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:NFTWallet.Helpers"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    >
+    <ContentView.Content>
+        <Grid
+            Padding="16"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="15"
+            >
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelTitleSmall}"
+                Text="{helpers:Translate LanguageLabelTitle}"
+                VerticalTextAlignment="Start"
+                />
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource LabelBodyNormal}"
+                Text="{helpers:Translate LanguageLabelSubtitle}"
+                />
+            <FlexLayout
+                Grid.Row="2"
+                Margin="0,15,0,0"
+                AlignItems="Start"
+                JustifyContent="SpaceAround"
+                RadioButtonGroup.GroupName="Language"
+                RadioButtonGroup.SelectedValue="{Binding LanguageSelected}"
+                >
+                <RadioButton
+                    xct:TouchEffect.NativeAnimation="True"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="system"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeLanguageCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_user_cog"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate LanguageLabelAutomatic}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton
+                    xct:TouchEffect.NativeAnimation="True"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="en-US"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeLanguageCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_eua"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate LanguageLabelEnglish}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton
+                    xct:TouchEffect.NativeAnimation="True"
+                    Style="{StaticResource CustomRadioButton}"
+                    Value="pt-BR"
+                    >
+                    <RadioButton.Behaviors>
+                        <xct:EventToCommandBehavior Command="{Binding ChangeLanguageCommand}" EventName="CheckedChanged" />
+                    </RadioButton.Behaviors>
+                    <RadioButton.Content>
+                        <StackLayout
+                            Padding="5,8"
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Fill"
+                            >
+                            <Image
+                                xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
+                                                                                    Light={StaticResource ColorPrimaryLight800}}"
+                                HeightRequest="24"
+                                HorizontalOptions="Center"
+                                Source="icon_brazil"
+                                VerticalOptions="Start"
+                                />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource LabelBodySmall}"
+                                Text="{helpers:Translate LanguageLabelPortuguese}"
+                                VerticalTextAlignment="Start"
+                                />
+                        </StackLayout>
+                    </RadioButton.Content>
+                </RadioButton>
+            </FlexLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

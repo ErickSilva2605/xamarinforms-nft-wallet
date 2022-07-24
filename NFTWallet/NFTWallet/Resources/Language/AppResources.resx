@@ -141,6 +141,21 @@
   <data name="HomePlaceholderSearch" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="LanguageLabelAutomatic" xml:space="preserve">
+    <value>Automatic (System)</value>
+  </data>
+  <data name="LanguageLabelEnglish" xml:space="preserve">
+    <value>English (en-US)</value>
+  </data>
+  <data name="LanguageLabelPortuguese" xml:space="preserve">
+    <value>Portuguese (pt-BR)</value>
+  </data>
+  <data name="LanguageLabelSubtitle" xml:space="preserve">
+    <value>Choose language!</value>
+  </data>
+  <data name="LanguageLabelTitle" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="LoginButtonLogin" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -192,9 +207,6 @@
   <data name="ProfileLabelLikes" xml:space="preserve">
     <value>Likes</value>
   </data>
-  <data name="SettingsLabelDark" xml:space="preserve">
-    <value>Theme</value>
-  </data>
   <data name="SettingsLabelFavorites" xml:space="preserve">
     <value>Favorites</value>
   </data>
@@ -215,6 +227,12 @@
   </data>
   <data name="SettingsLabelPrivacy" xml:space="preserve">
     <value>Privacy Policy</value>
+  </data>
+  <data name="SettingsLabelSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="SettingsLabelTheme" xml:space="preserve">
+    <value>Theme</value>
   </data>
   <data name="SettingsLabelTitle" xml:space="preserve">
     <value>Settings</value>

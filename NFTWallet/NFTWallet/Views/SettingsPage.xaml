@@ -225,7 +225,7 @@
                             <pancake:PancakeView.Border>
                                 <pancake:Border Thickness="2" Color="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800}, Light={StaticResource ColorPrimaryLight400}}" />
                             </pancake:PancakeView.Border>
-                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
                                 <Image
                                     xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark50},
                                                                                         Light={StaticResource ColorPrimaryLight800}}"
@@ -236,14 +236,6 @@
                                     Grid.Column="1"
                                     Style="{StaticResource SettingsCardLabel}"
                                     Text="{helpers:Translate SettingsLabelLanguage}"
-                                    />
-                                <Label
-                                    Grid.Column="2"
-                                    HorizontalTextAlignment="End"
-                                    Style="{StaticResource LabelBodyNormal}"
-                                    Text="pt-br"
-                                    TextTransform="Uppercase"
-                                    VerticalTextAlignment="Center"
                                     />
                             </Grid>
                         </pancake:PancakeView>
@@ -319,7 +311,7 @@
                                 <Label
                                     Grid.Column="1"
                                     Style="{StaticResource SettingsCardLabel}"
-                                    Text="{helpers:Translate SettingsLabelDark}"
+                                    Text="{helpers:Translate SettingsLabelTheme}"
                                     />
                             </Grid>
                         </pancake:PancakeView>
@@ -414,6 +406,7 @@
                         <Grid>
                             <contentViews:LogoutContentView IsVisible="{Binding LogoutVisible}" />
                             <contentViews:ThemeContentView IsVisible="{Binding ChangeThemeVisible}" />
+                            <contentViews:LanguageContentView IsVisible="{Binding ChangeLanguageVisible}" />
                         </Grid>
                     </pancake:PancakeView>
                 </Grid>

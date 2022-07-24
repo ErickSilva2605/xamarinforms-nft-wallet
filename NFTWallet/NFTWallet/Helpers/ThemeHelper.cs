@@ -20,8 +20,7 @@ namespace NFTWallet.Helpers
 
         public static void ChangeTheme(OSAppTheme theme)
         {
-            int themeSelected = Preferences.Get(Constants.PREFERENCES_KEY_THEME_SELECTED, (int)OSAppTheme.Unspecified);
-            if (themeSelected == (int)theme)
+            if (GetCurrentTheme() == theme)
                 return;
 
             Preferences.Set(Constants.PREFERENCES_KEY_THEME_SELECTED, (int)theme);
@@ -32,13 +31,11 @@ namespace NFTWallet.Helpers
         {
             int themeSelected = Preferences.Get(Constants.PREFERENCES_KEY_THEME_SELECTED, (int)OSAppTheme.Unspecified);
 
-            if (themeSelected != (int)OSAppTheme.Unspecified)
-                return (OSAppTheme)themeSelected;
+            if (themeSelected == (int)OSAppTheme.Unspecified)
+                if (!DeviceHasDarkMode())
+                    return OSAppTheme.Light;
 
-            if(!DeviceHasDarkMode())
-                return OSAppTheme.Light;
-
-            return OSAppTheme.Unspecified;
+            return (OSAppTheme)themeSelected;
         }
 
         public static bool DeviceHasDarkMode()

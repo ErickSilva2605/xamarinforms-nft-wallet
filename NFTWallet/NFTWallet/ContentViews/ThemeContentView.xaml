@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:NFTWallet.Helpers"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    x:Name="themePage"
     >
     <ContentView.Content>
         <Grid
@@ -68,7 +67,6 @@
                     </RadioButton.Content>
                 </RadioButton>
                 <RadioButton
-                    Grid.Column="1"
                     xct:TouchEffect.NativeAnimation="True"
                     Style="{StaticResource CustomRadioButton}"
                     Value="1"
@@ -101,7 +99,6 @@
                     </RadioButton.Content>
                 </RadioButton>
                 <RadioButton
-                    Grid.Column="2"
                     xct:TouchEffect.NativeAnimation="True"
                     Style="{StaticResource CustomRadioButton}"
                     Value="2"
