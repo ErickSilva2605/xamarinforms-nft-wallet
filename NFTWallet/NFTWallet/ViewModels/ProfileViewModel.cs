@@ -14,6 +14,7 @@ namespace NFTWallet.ViewModels
     {
         private readonly IProfileService _profileService;
         private ProfileModel _profile;
+        private string _exibitionMode;
 
         public Task Initialization { get; }
 
@@ -23,16 +24,25 @@ namespace NFTWallet.ViewModels
             set => SetProperty(ref _profile, value);
         }
 
+        public string ExibitionMode 
+        {
+            get => _exibitionMode;
+            set => SetProperty(ref _exibitionMode, value);
+        }
+
         public ICommand NavigateToDetailCommand { get; }
         public ICommand NavigateToSettingsCommand { get; }
+        public ICommand ChangeExibitionModeCommand { get; }
 
         public ProfileViewModel(INavigation navigation, IProfileService profileService)
             : base(navigation)
         {
             _profileService = profileService;
             Profile = new ProfileModel();
+            ExibitionMode = "2";
             NavigateToDetailCommand = new Command<NftModel>(async (nftSelected) => await ExecuteNavigateToDetailCommand(nftSelected));
             NavigateToSettingsCommand = new Command(async () => await ExecuteNavigateToSettingsCommand());
+            ChangeExibitionModeCommand = new Command<string>((mode) => ExecuteChangeExibitionModeCommand(mode));
 
             Initialization = InitializeAsync();
         }
@@ -97,6 +107,27 @@ namespace NFTWallet.ViewModels
                 IsBusy = true;
 
                 await Navigation.PushAsync(new SettingsPage(Profile.User));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private void ExecuteChangeExibitionModeCommand(string mode)
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                ExibitionMode = mode;
             }
             catch (Exception ex)
             {

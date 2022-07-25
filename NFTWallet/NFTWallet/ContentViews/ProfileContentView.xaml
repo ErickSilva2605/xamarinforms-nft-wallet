@@ -196,20 +196,69 @@
                 >
                 <pancake:PancakeView
                     Padding="0"
+                    xct:TouchEffect.Command="{Binding ProfileViewModel.ChangeExibitionModeCommand}"
+                    xct:TouchEffect.CommandParameter="2"
+                    xct:TouchEffect.NativeAnimation="True"
                     CornerRadius="20"
                     HeightRequest="40"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="40"
                     >
-                    <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
-                                                                            Light={StaticResource ColorSecondaryLight900}}"
-                        HeightRequest="32"
-                        HorizontalOptions="Center"
-                        Source="icon_grid"
-                        VerticalOptions="Center"
-                        />
+                    <Grid>
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600},
+                                                                                Light={StaticResource ColorPrimaryLight800}}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            IsVisible="False"
+                            Source="icon_grid"
+                            VerticalOptions="Center"
+                            >
+                            <Image.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="1"
+                                    >
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="2"
+                                    >
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                                Light={StaticResource ColorSecondaryLight900}}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            IsVisible="False"
+                            Source="icon_grid"
+                            VerticalOptions="Center"
+                            >
+                            <Image.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="2"
+                                    >
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="1"
+                                    >
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
                 </pancake:PancakeView>
                 <BoxView
                     Grid.Column="1"
@@ -222,48 +271,110 @@
                 <pancake:PancakeView
                     Grid.Column="2"
                     Padding="0"
+                    xct:TouchEffect.Command="{Binding ProfileViewModel.ChangeExibitionModeCommand}"
+                    xct:TouchEffect.CommandParameter="1"
+                    xct:TouchEffect.NativeAnimation="True"
                     CornerRadius="20"
                     HeightRequest="40"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="40"
                     >
-                    <Image
-                        xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600},
-                                                                            Light={StaticResource ColorPrimaryLight800}}"
-                        HeightRequest="32"
-                        HorizontalOptions="Center"
-                        Source="icon_single"
-                        VerticalOptions="Center"
-                        />
+                    <Grid>
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark600},
+                                                                                Light={StaticResource ColorPrimaryLight800}}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            IsVisible="False"
+                            Source="icon_single"
+                            VerticalOptions="Center"
+                            >
+                            <Image.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="1"
+                                    >
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="2"
+                                    >
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                        <Image
+                            xct:IconTintColorEffect.TintColor="{AppThemeBinding Dark={StaticResource ColorSecondaryDark900},
+                                                                                Light={StaticResource ColorSecondaryLight900}}"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            IsVisible="False"
+                            Source="icon_single"
+                            VerticalOptions="Center"
+                            >
+                            <Image.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="2"
+                                    >
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger
+                                    Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                    TargetType="Image"
+                                    Value="1"
+                                    >
+                                    <Setter Property="IsVisible" Value="True" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
                 </pancake:PancakeView>
             </Grid>
             <CollectionView
                 Grid.Row="2"
-                Margin="16,0"
+                Margin="8,0"
                 ItemsSource="{Binding ProfileViewModel.Profile.UserNfts}"
                 >
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout
-                        HorizontalItemSpacing="16"
-                        Orientation="Vertical"
-                        Span="2"
-                        VerticalItemSpacing="16"
-                        />
+                    <GridItemsLayout Orientation="Vertical" Span="{Binding ProfileViewModel.ExibitionMode}" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <pancake:PancakeView
-                            Padding="0"
-                            xct:TouchEffect.Command="{Binding Source={x:Reference profilePage}, Path=BindingContext.ProfileViewModel.NavigateToDetailCommand}"
-                            xct:TouchEffect.CommandParameter="{Binding .}"
-                            CornerRadius="8"
-                            HeightRequest="200"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Start"
-                            >
-                            <Image Aspect="AspectFill" Source="{Binding Image}" />
-                        </pancake:PancakeView>
+                        <Grid>
+                            <pancake:PancakeView
+                                Margin="8"
+                                Padding="0"
+                                xct:TouchEffect.Command="{Binding Source={x:Reference profilePage}, Path=BindingContext.ProfileViewModel.NavigateToDetailCommand}"
+                                xct:TouchEffect.CommandParameter="{Binding .}"
+                                CornerRadius="8"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Start"
+                                >
+                                <Image Aspect="AspectFill" Source="{Binding Image}" />
+                                <pancake:PancakeView.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                        TargetType="{x:Type pancake:PancakeView}"
+                                        Value="1"
+                                        >
+                                        <Setter Property="HeightRequest" Value="376" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding ProfileViewModel.ExibitionMode}"
+                                        TargetType="{x:Type pancake:PancakeView}"
+                                        Value="2"
+                                        >
+                                        <Setter Property="HeightRequest" Value="200" />
+                                    </DataTrigger>
+                                </pancake:PancakeView.Triggers>
+                            </pancake:PancakeView>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
