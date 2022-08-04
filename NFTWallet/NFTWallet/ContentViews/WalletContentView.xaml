@@ -70,7 +70,7 @@
                     CornerRadius="8"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
-                    WidthRequest="65"
+                    WidthRequest="70"
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image
@@ -96,7 +96,7 @@
                     CornerRadius="8"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
-                    WidthRequest="65"
+                    WidthRequest="70"
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image
@@ -122,7 +122,7 @@
                     CornerRadius="8"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
-                    WidthRequest="65"
+                    WidthRequest="70"
                     >
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Image

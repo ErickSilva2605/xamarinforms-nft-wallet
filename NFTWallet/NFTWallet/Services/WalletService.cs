@@ -38,8 +38,8 @@ namespace NFTWallet.Services
 
             return new ChartModel 
             {
-                DateMax = chartValues.Select(s => s.Date).Max().Date,
-                DateMin = chartValues.Select(s => s.Date).Min().Date,
+                DateMax = chartValues.Select(s => s.Date).Max(),
+                DateMin = chartValues.Select(s => s.Date).Min(),
                 Interval = 2000,
                 ValueMax = 10000,
                 ValueMin = 0,
@@ -58,7 +58,7 @@ namespace NFTWallet.Services
                     new ChartValueModel
                     {
                         Date = DateTime.Now.AddDays(-i),
-                        Value = random.Next(9500)
+                        Value = random.Next(9000)
                     }
                 );
             }
