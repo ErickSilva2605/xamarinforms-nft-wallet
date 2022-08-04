@@ -13,10 +13,10 @@
                                           Light={StaticResource ColorPrimaryLight400}}"
             CornerRadius="8"
             HasShadow="False"
-            HeightRequest="95"
+            HeightRequest="100"
             HorizontalOptions="Start"
             VerticalOptions="Start"
-            WidthRequest="95"
+            WidthRequest="110"
             >
             <Grid Margin="4" WidthRequest="80">
                 <Grid
