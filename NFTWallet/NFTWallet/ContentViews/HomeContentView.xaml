@@ -14,7 +14,7 @@
     <ContentView.Content>
         <Grid
             Padding="0,48,0,0"
-            RowDefinitions="Auto,Auto,40,*"
+            RowDefinitions="Auto,Auto,45,*"
             RowSpacing="16"
             VerticalOptions="Start"
             >
@@ -96,6 +96,7 @@
             <CollectionView
                 Grid.Row="2"
                 Margin="16,8,0,0"
+                Footer=""
                 ItemsSource="{Binding HomeViewModel.Filters}"
                 VerticalOptions="Start"
                 >
@@ -113,7 +114,7 @@
                             BorderColor="{AppThemeBinding Dark={StaticResource ColorPrimaryDark800},
                                                           Light={StaticResource ColorSecondaryLight900}}"
                             CornerRadius="8"
-                            HeightRequest="36"
+                            HeightRequest="42"
                             HorizontalOptions="Start"
                             VerticalOptions="Start"
                             >
