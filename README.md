@@ -1,3 +1,7 @@
+<a href="https://www.snppts.dev/snippet/pokedexXF">
+   <img src="./Images/snppts-badge.png" width="100" alt="Snppts Badge"/>
+</a>
+
 <p align="center">
    <picture>
       <source srcset="./Images/logo_ethereum_dark.png" media="(prefers-color-scheme: dark)">
